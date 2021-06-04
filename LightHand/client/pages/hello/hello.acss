@@ -1,0 +1,30 @@
+.mianbaoxie {
+  position: fixed;
+  width: 100%;
+  min-height: 104rpx;
+  line-height: 104rpx;
+  background-color: #fff;
+  color: #39f;
+  z-index: 999;
+  top: 100rpx;
+}
+
+.mianbaoxie text {
+  display: inline-block;
+}
+
+.classification {
+  border-radius: 10px
+}
+
+
+/* 加载中样式 */
+/* .inlineBlock {
+  color: #ccc;
+}
+
+.am-loading-wrap {
+  width: 750rpx !important;
+  height: 2000rpx !important;
+  margin: auto;
+} */

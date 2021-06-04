@@ -1,0 +1,124 @@
+<!-- <view style="display:flex;">
+  <view><text onTap="showWindows1"  style="font-size:14px;margin-left:40rpx;">退出</text></view>
+      <view><text onTap="showWindows2"  style="color:blue;font-size:14px;margin-left:520rpx;">提交</text></view>
+</view> -->
+
+<view class="youhu_title">
+  <text> ！提交信息之后，数据同步需要两天时间 </text>
+</view>
+
+<!-- <view class="youhua_top">
+  <text style="margin-left:12px;height: 21px;color: rgba(51, 51, 51, 100);font-size: 16px;text-align: left;font-family: PingFangSC-regular;">基本信息</text>
+
+  <view class="youhua_divder"></view>
+  <view class="youhua_top2">
+    <view>
+      <text style="width:60px;height:30px;font-size: 14px;">类别</text>
+    </view>
+
+    <view>
+      <text style="width:224px; margin-left:50px;font-size: 12px;display: -webkit-box;-webkit-line-clamp: 1;overflow: hidden; text-overflow:ellipsis;"number-of-lines=2; >家具园艺>>打火机及烟具>>水烟袋</text>
+    </view>
+    
+  </view> -->
+
+  <!-- 横线 -->
+
+  <!-- <view class="youhua_divder"></view>
+  <view class="youhua_top3" style="margin-top:10px;">
+    <view>
+        <view>
+          <text style="font-size: 14px;font-family: PingFangSC-regular;line-height: 19px;">产品名称</text>
+        </view>
+        <view style="margin-left:75px;margin-top:-20px;">
+          <view><text>Brass GIFT BOX Mirror Small ji</text></view>
+        
+        </view>
+    </view>
+    <view>
+        <view>
+          <text style="font-size: 14px;font-family: PingFangSC-regular;height: 19px;margin-top:10px;">产品关键词</text>
+        </view>
+        <view style="margin-left:75px;margin-top:-17px;">
+          <view><text style="font-size:12px;">Brass GIFT BOX Mirror Small ji</text></view>
+         
+          <view style="margin-top:20px;"><text>Brass GIFT BOX Mirror Small ji</text></view>
+          
+          <view style="margin-top:20px;"><text>Brass GIFT BOX Mirror Small ji</text></view>
+         
+        </view>
+    </view>
+     
+  </view>
+</view> -->
+
+
+<view class="youhua_bottom">
+
+<text style="margin-left:8px;font-size: 16px;margin-top:5px;width：200rpx;margin-left:12px;">产品图片</text>
+
+<text style="width:40px;height:20px;margin-left:400rpx;margin-top:-35px;">{{images.length}}/6</text>
+
+<view style="font-size: 12px;width: 283px;height: 16px;text-align: left;margin-left:30px;">单个文件不能超过5MB,支持格式：.JPG.PNG.JPEG</view>
+<view style="display:flex; width:702rpx;flex-wrap:wrap;margin-left:35px;margin-bottom: 68px;">
+  <view a:for="{{images}}" a:key="id" a:for-item="images" class="image" style="width:180rpx;display:flex;margin-top:0px;" >
+      <image style="width:180rpx;" mode="widthFix" src="{{images.src}}"/>
+  </view>
+  
+
+
+<!-- 提交按钮 -->
+<!-- 
+<view class="anniu">
+  <navigator open-type="navigate" url="../xiufu" hover-class="navigator-hover" style="font-size: 14px;width:160px;height:36px;margin-left:68px;">重新检测</navigator>
+</view> -->
+
+
+
+
+<!-- 产品属性 -->
+      </view>
+      <view class="shuxing">
+    <view class="page-description">产品属性</view>
+    <view>
+      <view class="page-section" a:for="{{array}}"a:for-item="item"  >
+     
+        <picker onChange="bindPickerChangeGongYi" data-attr="{{item}}" name="aid"  data-index="{{index}}" range="{{item.options}}" value="{{array[index].id}}">
+          <view class="xian row">
+            <view class="row-title">{{item.label}}</view>
+            <view class="row-extra">{{array[index].options[array[index].id]}}</view>
+            <view class="row-arrow">
+                  >
+            </view>
+          </view>
+        </picker>
+     
+      </view>
+    </view>
+  </view>
+  <!-- 产品规格 -->
+  <view class="guige">
+    <view class="page-description">产品规格</view>
+    <view class="page-section" a:for="{{arrayGG}}" a:for-item="item">
+     <text style="width:86px;height:20px;text-algin:left;">{{item.labal}}</text>
+      <text style="width:200px; height:20px;margin-left:90px;">{{item.options}} </text>
+      <text style="float:right;">></text>
+    </view>
+  </view>
+    <!-- 物流信息 -->
+    <view class="guige">
+      <view class="page-description">物流信息</view>  
+        <view class="page-section">
+        <view class="form-line" />
+        <view class="form-row">
+          <!--包装方式 输入框 -->
+          <view class="form-row-content" style="width:702rpx;height:50rpx;display:flex;margin-left:-40px;">
+            <text style="width:60px;height:20px;color: rgba(102, 102, 102, 100);font-size:14px; vertical-align: center;line-height: 30px;margin-left:24px;">包装方式</text>
+            <input name="input" class="input" placeholder="请输入内容" style="margin-left:30px;font-size:12px;width:200px;height:20px;"/>
+          </view>
+        </view>
+        <view>
+          
+        </view>
+        </view>
+         <view><button size="default" type="primary" onTap="showWindows2" style="margin-left:280rpx;margin-top:40rpx;width:180rpx;border-radius: 10px;">提交</button> 

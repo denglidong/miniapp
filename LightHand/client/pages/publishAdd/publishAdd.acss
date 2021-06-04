@@ -1,0 +1,646 @@
+
+
+/* .shuxing {
+  width: 700rpx;
+  min-height: 78rpx;
+  border-radius: 12rpx;
+  margin-top: 44rpx;
+  background-color: rgba(246, 246, 246, 100);
+  text-align: center;
+  border: 2rpx solid rgba(255, 255, 255, 100);
+  overflow: hidden;
+} */
+
+/* .page-description {
+  width: 702rpx;
+  height: 78rpx;
+  line-height: 78rpx;
+  overflow: hidden;
+  color: rgba(102, 102, 102, 100);
+  font-size: 32rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+  border-bottom: 2rpx solid rgba(187, 187, 187, 100);
+} */
+
+/* .page-section {
+  margin: 34rpx 46rpx 34rpx 44rpx;
+} */
+
+/* .input_shu {
+  width: 400rpx;
+  height: 28rpx;
+  line-height: 28rpx;
+  padding: 10rpx 0;
+} */
+
+/* .danxuan {
+  overflow: scroll;
+  background-color: #fff;
+} */
+
+.am-popup-content {
+  left: 0;
+}
+
+/* 产品规格 */
+
+.guige {
+  width: 702rpx;
+  height: 222rpx;
+  margin-top: 44rpx;
+  background-color: rgba(246, 246, 246, 1);
+  border: 2rpx solid rgba(255, 255, 255, 1);
+  border-radius: 12rpx;
+}
+
+/* picker组件开始 */
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  /* border-top: 1px solid red; */
+  /* align-items: center; */
+  /* padding: 0 30rpx; */
+}
+
+.row-title {
+  width: 168rpx;
+  height: 40rpx;
+  color: rgba(102, 102, 102, 1);
+  font-size: 28rpx;
+  line-height: 40rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+  margin: auto;
+}
+
+.row-extra {
+  width: 4rem;
+  height: 0.28rem;
+  padding: 0.1rem 0;
+  line-height: 0.14rem;
+  background: #fff;
+  text-align: center;
+}
+
+.row-arrow {
+  width: 60rpx;
+  height: 60rpx;
+  text-align: center;
+}
+
+/* picker组件结束 */
+
+/* 直接下单交易信息开始 */
+
+.min {
+  width: 624rpx;
+  min-height: 40rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  margin: auto;
+  overflow: hidden;
+  margin-top: 38rpx;
+  margin-bottom: 60rpx;
+}
+
+.line {
+  width: 542rpx;
+  height: 94rpx;
+  margin: auto;
+  border-bottom: 2rpx solid rgba(187, 187, 187, 1);
+  overflow: hidden;
+}
+
+/* 直接下单交易信息结束 */
+
+/* 全部复制publishRemove内容 */
+
+.input_shu {
+  width: 400rpx;
+  height: 28rpx;
+  line-height: 28rpx;
+  padding: 10rpx 0;
+  color: rgba(51, 51, 51, 1);
+  font-size: 24rpx;
+  text-align: center;
+}
+
+/* .forbidScroll{
+
+  /* top: 0px; 
+  left: 0px;
+  width: 100%;
+  /height: 100%;
+  overflow: hidden;
+  position: fixed;
+  z-index: 0; */
+
+/* position: fixed;
+  
+  left:0;
+ 
+   right:0; 
+
+} */
+
+.am-popup-content {
+  z-index: 999;
+}
+
+.am-popup-mask {
+  z-index: 999;
+}
+
+/* .select_input {
+  width: 400rpx;
+ min-height: 28rpx;
+  padding: 10rpx 0;
+  background: #fff;
+} */
+
+.select_input {
+  width: 400rpx;
+  min-height: 28.8rpx;
+  padding: 10rpx 0;
+  line-height: 28.8rpx;
+  /* line-height: 14rpx; */
+  background: #fff;
+  /* text-align: center; */
+  color: rgba(51, 51, 51, 1);
+  font-size: 24rpx;
+}
+
+.danxuan {
+  overflow: scroll;
+  height: 490rpx;
+  background-color: #ffffff;
+  padding: 40rpx 40rpx;
+  max-height: 490rpx;
+  border-radius: 56rpx 56rpx 0 0;
+}
+
+.print {
+  color: rgba(102, 102, 102, 1);
+  font-size: 28rpx;
+  width: 172rpx;
+  min-height: 48rpx;
+  text-align: left;
+  line-height: 48rpx;
+}
+
+.columns {
+  color: rgba(102, 102, 102, 1);
+  font-size: 28rpx;
+  width: 172rpx;
+  min-height: 48rpx;
+  line-height: 48rpx;
+  text-align: left;
+}
+
+.master {
+  display: flex;
+  justify-content: space-between;
+  margin: 34rpx 46rpx 34rpx 44rpx;
+  padding-bottom: 40rpx;
+}
+
+/* popup弹起确定样式 */
+
+.whiteSpace {
+  width: 710rpx;
+  margin-top: -41rpx;
+  margin-left: -22rpx;
+  height: 86rpx;
+  color: #fff;
+  background-color: #fff;
+  border-radius: 30rpx;
+  position: fixed;
+}
+
+/* 确定按钮样式 */
+
+.confirm {
+  text-align: center;
+  width: 666rpx;
+  margin: -22rpx auto;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #fff;
+  background-color: #1677ff;
+  border-radius: 20rpx;
+  position: fixed;
+}
+
+/* popup里面的样式开始 */
+
+.auto {
+  width: 100%;
+  margin: auto;
+  height: 80rpx;
+  color: #fff;
+  background-color: #fff;
+}
+
+.discolor {
+  min-height: 40rpx;
+  padding: 20rpx 10rpx;
+  margin-bottom: 20rpx;
+  border-radius: 20rpx;
+}
+
+.space {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* popup李米娜的样式结束 */
+
+.page {
+  overflow: hidden;
+  font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
+  font-size: 24rpx;
+  background: #fff;
+  margin-top: 100rpx;
+  padding-left: 20rpx;
+  /* padding-right: 32rpx; */
+}
+
+/* 交易信息 */
+
+.cj1 {
+  color: rgba(51, 51, 51, 1);
+  font-size: 24rpx;
+  text-align: left;
+  font-family: "PingFangSC-regular"
+}
+
+/* .page {
+  
+ 
+  flex: 1;
+} */
+
+/* 产品类型 */
+
+.leixing {
+  width: 702rpx;
+  height: 222rpx;
+  margin-top: 44rpx;
+  background-color: rgba(246, 246, 246, 1);
+  border: 2rpx solid rgba(255, 255, 255, 1);
+  border-radius: 12rpx;
+}
+
+/* 产品属性 */
+
+/* .am-popup-bottom {
+  overflow: scroll;
+} */
+
+.shuxing {
+  width: 700rpx;
+  min-height: 78rpx;
+  border-radius: 12rpx;
+  margin-top: 44rpx;
+  background-color: rgba(230, 230, 230, 0.3);
+  text-align: center;
+  border: 2rpx solid rgba(255, 255, 255, 1);
+  overflow: hidden;
+}
+
+.page-section {
+  margin: 34rpx 46rpx 34rpx 44rpx;
+}
+
+.am-popup-content {
+  left: 0;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  /* border-top: 1px solid red; */
+  /* align-items: center; */
+  /* padding: 0 30rpx; */
+}
+
+.row-title {
+  width: 168rpx;
+  height: 40rpx;
+  color: rgba(102, 102, 102, 1);
+  font-size: 28rpx;
+  line-height: 40rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+  margin: auto;
+}
+
+.row-extra {
+  width: 4rem;
+  height: 0.28rem;
+  padding: 0.1rem 0;
+  line-height: 0.14rem;
+  background: #fff;
+  text-align: center;
+}
+
+.row-arrow {
+  width: 60rpx;
+  height: 60rpx;
+  text-align: center;
+}
+
+/* 产品规格 */
+
+.guige {
+  width: 702rpx;
+  height: 222rpx;
+  margin-top: 44rpx;
+  background-color: rgba(216, 216, 216, 0.4);
+  border: 2rpx solid rgba(255, 255, 255, 1);
+  border-radius: 12rpx;
+}
+
+/* 交易信息 */
+
+.xinxi {
+  width: 702rpx;
+  height: 778rpx;
+  margin-top: 44rpx;
+  background-color: rgba(246, 246, 246, 1);
+  border: 2rpx solid rgba(255, 255, 255, 1);
+  border-radius: 12rpx;
+}
+
+.placeholder-yanse {
+  font-size: 24rpx;
+  color: rgba(51, 51, 51, 1);
+  background-color: rgba(246, 246, 246, 1);
+  padding: 0;
+}
+
+/* 最小起订量 */
+
+.min {
+  width: 624rpx;
+  min-height: 40rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  margin: auto;
+  overflow: hidden;
+  margin-top: 38rpx;
+  margin-bottom: 60rpx;
+}
+
+.line {
+  width: 542rpx;
+  height: 94rpx;
+  margin: auto;
+  border-bottom: 2rpx solid rgba(187, 187, 187, 1);
+  overflow: hidden;
+}
+
+.placeholder-input {
+  color: rgba(51, 51, 51, 1);
+}
+
+input {
+  border: 0;
+  outline: none;
+}
+
+/* 定制信息 */
+
+.dingzhi {
+  width: 702rpx;
+  min-height: 80rpx;
+  margin-bottom: 44rpx;
+  border-radius: 12rpx;
+  background-color: rgba(230, 230, 230, 0.3);
+  color: rgba(102, 102, 102, 1);
+  overflow: hidden;
+  margin-top: 44rpx
+}
+
+.page-description {
+  width: 702rpx;
+  height: 78rpx;
+  line-height: 78rpx;
+  padding-left: 36rpx;
+  overflow: hidden;
+  color: rgba(51, 51, 51, 1);
+  font-size: 32rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+  border-bottom: 2rpx solid rgba(187, 187, 187, 1);
+}
+
+/* 下拉框样式 */
+
+.demo-steps-class {
+  margin: 0;
+  border-bottom: 2rpx solid #e5e5e5;
+}
+
+.demo-btn-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40rpx;
+}
+
+.demo-btna {
+  width: 37%;
+  margin: 0 auto;
+  background-color: #1677ff;
+  border-radius: 48rpx;
+  color: #fff;
+  margin-bottom: 30rpx;
+}
+
+.demo-btn {
+  width: 37%;
+  margin: 0 auto;
+  height: 96rpx !important;
+  background-color: grey !important;
+  border-radius: 48rpx;
+  color: #fff;
+}
+
+.shangChuan {
+  width: 340rpx;
+  height: 340rpx;
+  border-radius: 50%;
+  margin: 0 auto;
+  border: 1px solid rgba(187, 187, 187, 1);
+  text-align: center;
+  line-height: 340rpx;
+  font-size: 30rpx;
+  overflow: hidden;
+  margin-top: 180rpx;
+  margin-bottom: 180rpx;
+  position: relative;
+}
+
+.shangChuana {
+  width: 340rpx;
+  height: 340rpx;
+  border-radius: 50%;
+  margin: 0 auto;
+  border: 1px solid rgba(187, 187, 187, 1);
+  position: relative;
+  text-align: center;
+  line-height: 340rpx;
+  font-size: 30rpx;
+  overflow: hidden;
+  margin-top: 180rpx;
+  margin-bottom: 180rpx;
+  background-image: url({{tempFiles}})
+}
+
+.d_title {
+  width: 700rpx;
+  min-height: 224rpx;
+  /* height: 562rpx; */
+  margin: 0 auto;
+  padding-bottom: 30rpx;
+  line-height: 20px;
+  border-radius: 12px;
+  background-color: rgba(216, 216, 216, 0.4);
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 1);
+  position: relative;
+  margin-bottom: 44rpx;
+}
+
+.title {
+  width: calc(100% - 20rpx);
+  height: 58rpx;
+  border-bottom: 2rpx solid rgba(187, 187, 187, 1);
+  font-size: 32rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+  padding-top: 20rpx;
+  padding-left: 20rpx;
+}
+
+.title_x {
+  text-align: left;
+  padding-top: 20rpx;
+  padding-left: 20rpx;
+  color: rgba(102, 102, 102, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+}
+
+.cj {
+  width: 100%;
+  color: rgba(51, 51, 51, 1);
+  font-size: 24rpx;
+  text-align: left;
+  font-family: PingFangSC-regular
+}
+
+.cj1 {
+  color: rgba(51, 51, 51, 1);
+  font-size: 24rpx;
+  text-align: left;
+  font-family: PingFangSC-regular
+}
+
+.cp {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 36rpx;
+  color: rgba(0, 0, 0, 1);
+  font-size: 24rpx;
+  text-align: left;
+  font-family: PingFangSC-regular
+}
+
+.qiehuan {
+  position: absolute;
+  top: 100rpx;
+  right: 24rpx;
+  color: rgba(204, 50, 50, 1);
+  font-size: 24rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+
+.feiBiXuan {
+  position: absolute;
+  top: 20rpx;
+  left: 160rpx;
+  color: rgba(204, 50, 50, 1);
+  font-size: 24rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+
+.image {
+  width: 146rpx;
+  height: 146rpx;
+  margin-left: 30rpx;
+  margin-top: 30rpx;
+  background-color: #fff;
+  display: flex;
+}
+
+.image1 {
+  width: 146rpx;
+  height: 146rpx;
+  margin-top: 30rpx;
+  display: flex;
+  background-size: 146rpx 146rpx;
+  background-repeat: no-repeat;
+}
+
+.hide {
+  display: none;
+}
+
+/* --------------------------------------------- */
+
+/* 交易信息 */
+
+.xinxi {
+  width: 702rpx;
+  height: 778rpx;
+  margin-top: 44rpx;
+  background-color: rgba(246, 246, 246, 1);
+  border: 2rpx solid rgba(255, 255, 255, 1);
+  border-radius: 12rpx;
+}
+
+/* 最小起订量 */
+
+.min {
+  width: 624rpx;
+  min-height: 80rpx;
+  background: #fff;
+  margin: auto;
+  overflow: hidden;
+}
+
+/* 交易信息 */
+
+/* 产品规格 */
+
+.transaction {
+  width: 702rpx;
+  height: 222rpx;
+  margin-top: 44rpx;
+  background-color: rgba(246, 246, 246, 1);
+  border: 2rpx solid rgba(255, 255, 255, 1);
+  border-radius: 12rpx;
+}
+
+/* 表单提交按钮样式 */
+
+.demo-btn-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40rpx;
+}

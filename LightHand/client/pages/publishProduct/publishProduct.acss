@@ -1,0 +1,309 @@
+page {
+  overflow: hidden;
+}
+
+.xinghua {
+  color: rgba(204, 50, 50, 1);
+}
+
+.placeholder-input {
+  font-size: 24rpx;
+}
+
+/* .danxuan{
+  overflow: scroll;
+} */
+
+.danxuan {
+  overflow: scroll;
+  height: 490rpx;
+  background-color: #ffffff;
+  padding: 40rpx 40rpx;
+  max-height: 490rpx;
+  border-radius: 56rpx 56rpx 0 0;
+}
+
+/* popup弹起确定样式 */
+
+.whiteSpace {
+  width: 710rpx;
+  margin-top: -41rpx;
+  margin-left: -22rpx;
+  height: 86rpx;
+  color: #fff;
+  background-color: #fff;
+  border-radius: 30rpx;
+  position: fixed;
+}
+
+/* 确定按钮样式 */
+
+.confirm {
+  text-align: center;
+  width: 666rpx;
+  margin: -22rpx auto;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #fff;
+  background-color: #1677ff;
+  border-radius: 20rpx;
+  position: fixed;
+}
+
+/* popup里面的样式开始 */
+
+.auto {
+  width: 100%;
+  margin: auto;
+  height: 80rpx;
+  color: #fff;
+  background-color: #fff;
+}
+
+.discolor {
+  min-height: 40rpx;
+  padding: 20rpx 10rpx;
+  margin-bottom: 20rpx;
+  border-radius: 20rpx;
+}
+
+.space {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* popup李米娜的样式结束 */
+
+.input {
+  margin-left: 254rpx;
+  margin-top: -50rpx;
+  width: 358rpx;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 24rpx;
+  text-align: left;
+  font-family: "PingFangSC-regular"
+}
+
+.demo-steps-class {
+  margin: 0;
+  border-bottom: 2rpx solid #e5e5e5;
+}
+
+.nav-title-me {
+  margin: 0 auto;
+  width: 192rpx;
+  color: rgba(0, 0, 0, 1);
+  font-size: 48rpx;
+  font-family: "PingFangSC-regular";
+  margin-top: 60rpx;
+}
+
+.demo-btn-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40rpx;
+}
+
+.demo-btna {
+  width: 40%;
+  margin: 0 auto;
+  background-color: #1677ff;
+  border-radius: 28rpx;
+  color: #fff;
+  margin-bottom: 30rpx;
+}
+
+.demo-btna-q {
+  width: 70%;
+  margin: 0 auto;
+  background-color: #1677ff;
+  border-radius: 28rpx;
+  color: #fff;
+  margin-bottom: 30rpx;
+}
+
+.demo-btn {
+  width: 70%;
+  margin: 0 auto;
+  height: 96rpx !important;
+  background-color: grey !important;
+  border-radius: 28rpx;
+  color: #fff;
+}
+
+.am-checkbox-synthetic {
+  z-index: 0
+}
+
+.am-popup-mask {
+  z-index: 99
+}
+
+.am-popup-bottom {
+  z-index: 99
+}
+
+.page {
+  font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
+  font-size: 24rpx;
+  padding: 32rpx;
+  flex: 1;
+}
+
+.shangChuan {
+  width: 340rpx;
+  height: 340rpx;
+  border-radius: 50%;
+  margin: 0 auto;
+  border: 1px solid rgba(187, 187, 187, 100);
+  text-align: center;
+  line-height: 340rpx;
+  font-size: 30rpx;
+  overflow: hidden;
+  margin-top: 180rpx;
+  margin-bottom: 180rpx;
+  position: relative;
+}
+
+.shangChuana {
+  width: 340rpx;
+  height: 340rpx;
+  border-radius: 50%;
+  margin: 0 auto;
+  border: 1px solid rgba(187, 187, 187, 1);
+  position: relative;
+  text-align: center;
+  line-height: 340rpx;
+  font-size: 30rpx;
+  overflow: hidden;
+  margin-top: 180rpx;
+  margin-bottom: 180rpx;
+  background-image: url({{tempFiles}})
+}
+
+.d_title {
+  width: 700rpx;
+  min-height: 224rpx;
+  margin: 0 auto;
+  padding-bottom: 30rpx;
+  line-height: 40rpx;
+  border-radius: 24rpx;
+  background-color: rgba(230, 230, 230,0.3);
+  text-align: center;
+  border: 2rpx solid #f7f7f7;
+  position: relative;
+  margin-bottom: 44rpx;
+  margin-top: 44rpx;
+}
+
+.title {
+  width: calc(100% - 20rpx);
+  height: 58rpx;
+  border-bottom: 2rpx solid rgba(187, 187, 187, 1);
+  font-size: 32rpx;
+  text-align: left;
+  font-family: "PingFangSC-regular";
+  padding-top: 20rpx;
+  padding-left: 20rpx;
+}
+
+.title_x {
+  text-align: left;
+  padding-top: 20rpx;
+  padding-left: 36rpx;
+  color: rgba(102, 102, 102, 1);
+  font-size: 28rpx;
+  font-family: "PingFangSC-regular";
+}
+
+.cj {
+  width: 100%;
+  color: rgba(51, 51, 51, 1);
+  font-family: "PingFangSC-regular"
+}
+
+.cj1 {
+  font-size: 24rpx;
+  color: rgba(51, 51, 51, 1);
+  font-family: "PingFangSC-regular"
+}
+
+.cp {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 36rpx;
+  color: rgba(0, 0, 0, 1);
+  font-size: 24rpx;
+  text-align: left;
+  font-family: "PingFangSC-regular"
+}
+
+.qiehuan {
+  position: absolute;
+  top: 98rpx;
+  right: 24rpx;
+  color: rgba(204, 50, 50, 1);
+  font-size: 24rpx;
+  text-align: left;
+  font-family: "PingFangSC-regular";
+}
+
+.feiBiXuan {
+  position: absolute;
+  top: 20rpx;
+  left: 160rpx;
+  color: rgba(204, 50, 50, 1);
+  font-size: 24rpx;
+  text-align: left;
+  font-family: "PingFangSC-regular";
+}
+
+.image {
+  width: 146rpx;
+  height: 146rpx;
+  margin-left: 30rpx;
+  margin-top: 30rpx;
+  background-color: #fff;
+  display: flex;
+}
+
+.image1 {
+  width: 146rpx;
+  height: 146rpx;
+  margin-top: 30rpx;
+  display: flex;
+  background-size: 146rpx 146rpx;
+  background-repeat: no-repeat;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.showInfo {
+  width: 54%;
+  height: 60rpx;
+  line-height: 60rpx;
+  background-color: rgba(255, 255, 255, 1);
+  color: rgba(51, 51, 51, 1);
+  font-size: 24rpx;
+  text-align: center;
+  font-family: Arial;
+  /* border: 2rpx solid rgba(220, 220, 220, 1); */
+  margin-left: 36%;
+  position: absolute;
+  z-index: 80;
+}
+
+.inputwidth {
+  width: 56%;
+  margin-left: 10rpx;
+  padding-top: 6rpx;
+  font-size: 24rpx;
+  text-align: center;
+}

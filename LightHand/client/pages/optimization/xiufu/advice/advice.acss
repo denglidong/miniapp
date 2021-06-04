@@ -1,0 +1,150 @@
+page{
+background-color: #ffff;
+}
+.youhu_title{
+position: relative;
+width: 351px;
+height: 36px;
+color: rgba(51, 51, 51, 1);
+font-size: 12px;
+text-align: left;
+font-family: PingFangSC-regular;
+
+}
+
+
+.youhua_bottom{
+margin-top: 10px;
+width: 702rpx;
+display: flex;
+flex-wrap: wrap;
+float: left;
+line-height: 1.5;
+font-weight: bold;
+margin-left: 12px;
+background-color: #f5f5f5;
+border-radius: 10px;
+box-shadow: 0px 3px 4px 0px rgba(4, 0, 0, 0.2);
+}
+.youhua_bottom image{
+  display: flex;
+  width: 90px;
+  margin-top:5px;
+  margin-left: 20px;
+  float: left;
+  margin-bottom: 10px;
+  
+}
+.youhua_bottom text{
+ 
+  width: 320px;
+  
+  margin-left: 30px;
+  margin-bottom: 10px;
+  
+}
+
+
+.anniu{
+  position: relative;
+  top: 20px;
+  
+
+}
+.row {
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+}
+.row-extra {
+  flex-basis: initial;
+  font-size: 32rpx;
+  color: #888;
+}
+/* 产品属性 */
+.shuxing {
+  width: 700rpx;
+  margin-left: 24rpx;
+  border-radius: 12rpx;
+  margin-top: 44rpx;
+  background-color:  #f5f5f5;
+  text-align: center;
+  border: 2rpx solid rgba(255, 255, 255, 100);
+
+  
+   overflow: hidden;
+}
+.page-description {
+  width: 678rpx;
+  height: 78rpx;
+  line-height: 78rpx;
+  overflow: hidden;
+
+  margin-left: 22rpx;
+  color: rgba(102, 102, 102, 100);
+  font-size: 32rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+   border-bottom: 2rpx solid rgba(187, 187, 187, 100);
+}
+.page-section {
+  margin: 34rpx 46rpx 34rpx 44rpx;
+}
+
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  /* border-top: 1px solid red; */
+  /* align-items: center; */
+  /* padding: 0 30rpx; */
+  
+}
+
+
+.row-title {
+  
+ width: 188rpx;
+ height: 40rpx;
+ color: rgba(102, 102, 102, 100);
+ font-size: 28rpx;
+ line-height: 40rpx;
+ text-align: left;
+ font-family: PingFangSC-regular;
+ margin: auto;
+}
+
+.row-extra {
+  width: 300rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin-left: 50rpx;
+ 
+  background-color: #f5f5f5;
+  color: rgba(102, 102, 102, 100);
+  font-size: 28rpx;
+  text-align: left;
+  font-family: Arial;
+  
+ 
+}
+
+.row-arrow {
+ 
+  width: 60rpx;
+  height: 60rpx; 
+  text-align: center;
+  
+}
+
+/* 产品规格 */
+.guige {
+  width: 702rpx;
+ 
+  margin-top: 44rpx;
+  margin-left:24rpx;
+  background-color: #f5f5f5;
+  border: 2rpx solid rgba(255, 255, 255, 1);
+ border-radius: 6px;
+
+}

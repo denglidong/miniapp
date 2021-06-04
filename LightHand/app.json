@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "client/pages/product/product/product",
+    "client/pages/product/product",
+    "client/pages/optimization/optimization",
+    "client/pages/publish/publish",
+    "client/pages/ecoration/ecoration",
+    "client/pages/decoration/decoration",
+    "client/pages/publishProduct/imagePank/imagePank",
+    "client/pages/publishProduct/imagePank/imageInfo/imageInfo",
+    "client/pages/publishProduct/alibabaRule/alibabaRule",
+    
+  ]
+}

@@ -1,0 +1,766 @@
+<view class="page {{forbidScroll ? 'forbidScroll' : ''}}">
+  <!-- 基本信息开始 -->
+  <view class="shuxing">
+    <view class="page-description">基本信息</view>
+    <view class="master">
+      <view style="display: flex;margin-left: -28rpx;">
+        <image style="width: 24rpx;height: 24rpx;margin-top: 10rpx;" src="/image/star.png"/>
+        <text class="print">模板名称</text>
+      </view>
+      <input onInput="template" placeholder-class='placeholder-input' placeholder="{{'请输入模板名称'}}" value="{{modelName}}" class="input_shu" />
+    </view>
+    <view class="master">
+      <view style="display: flex;margin-left: -28rpx;">
+        <image style="width: 24rpx;height: 24rpx;margin-top: 10rpx;" src="/image/star.png"/>
+        <text class="print">平台分类</text>
+      </view>
+      <view onTap="toSelectType" class="select_input">
+{{modelStyle}}
+      </view>
+    </view>
+    <view class="master">
+      <view style="display: flex;margin-left: -28rpx;">
+        <image style="width: 24rpx;height: 24rpx;margin-top: 10rpx;" src="/image/star.png"/>
+        <text class="print">产品分组</text>
+      </view>
+      <view onTap="productGroup" class="select_input">
+{{groupName==''?'请选择产品分组':groupName}}
+      </view>
+    </view>
+  </view>
+  <!-- 产品类型开始 -->
+  <view class="shuxing">
+    <view class="page-description">产品类型</view>
+    <view class="master">
+      <view style="display: flex;margin-left: -28rpx;">
+        <image style="width: 24rpx;height: 24rpx;margin-top: 10rpx;" src="/image/star.png"/>
+        <text class="print">类型</text>
+      </view>
+      <view onTap="productStyle" class="select_input">
+{{productStyleChineseName==''?'请选择产品类型':productStyleChineseName}}
+      </view>
+    </view>
+  </view>
+  <!-- 产品类型popup开始 -->
+  <popup show="{{showTopProductStyle}}" disableScroll="{{false}}">
+    <view class="danxuan" style="height: 490rpx;background-color: #ffffff;padding: 40rpx 40rpx;max-height: 490rpx;border-radius:60rpx 60rpx 0 0;">
+      <view style="width: 666rpx;margin: -40rpx auto;height: 80rpx;color: #fff;background-color: #fff;border-radius: 20rpx;position: fixed;">
+      </view>
+      <view onTap="define" style="text-align: center;width: 666rpx;margin: -22rpx auto;height: 80rpx;line-height: 80rpx;color: #fff;background-color: #1677ff;border-radius: 20rpx;position: fixed;">
+        <text>确定</text>
+      </view>
+      <view style="width: 100%;margin: auto;height: 80rpx;color: #fff;background-color: #fff;">
+      </view>
+      <view a:for={{typeArray}} a:for-item="select">
+        <view style="min-height:40rpx;min-line-height:40rpx;padding: 20rpx;margin-bottom:20rpx;border-radius:20rpx;background: {{select.zh_name == productStyleChineseName?'linear-gradient(92deg,#ffba40 0%,#ff503e 37%,#ff2f50 81%,#ff1b40 100%)':'#fff'}}" onTap="productStyleTap" data-en_name = {{select.en_name}} data-zh_name = {{select.zh_name}}>
+          <view style="display: flex;justify-content: space-between;">
+            <text>{{select.zh_name}}</text>
+            <text>{{select.en_name}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </popup>
+  <!-- 产品属性开始 -->
+  <view class="shuxing">
+    <view class="page-description">产品属性</view>
+    <view>
+      <view class="page-section" a:for='{{no_sku}}' a:for-index="i" a:for-item="xuanze">
+        <view a:if={{xuanze.input_type == "input"}}>
+          <view style="display: flex;justify-content: space-between;padding-bottom: 40rpx;">
+            <view style="display: flex;">
+              <image style="display: {{xuanze.required == 1? 'block': 'none'}};width: 24rpx;height: 24rpx;margin: 10rpx 0 0 -20rpx" src="/image/star.png"/>
+              <text style="color: rgba(102, 102, 102, 1);font-size: 28rpx;width: 172rpx;min-height: 48rpx;line-height: 48rpx;text-align: left;">{{xuanze.zh_name}}</text>
+            </view>
+            <input onBlur="product_attribute" placeholder-class='placeholder-input' placeholder="{{'请填写'+xuanze.zh_name}}" data-en_name ={{xuanze.en_name}} class="input_shu" value="{{projectAttr[xuanze.en_name].value_name}}" />
+          </view>
+        </view>
+        <view a:else>
+          <view class="btn-container">
+            <view>
+              <view style="display: flex;justify-content: space-between;padding-bottom: 40rpx;">
+                <view style="display: flex;">
+                  <image style="display: {{xuanze.required == 1? 'block': 'none'}};width: 24rpx;height: 24rpx;margin: 10rpx 0 0 -20rpx" src="/image/star.png"/>
+                  <text style="color: rgba(102, 102, 102, 1);font-size: 28rpx;width: 172rpx;min-height: 48rpx;line-height: 48rpx;text-align: left;">{{xuanze.zh_name}}</text>
+                </view>
+                <view a:if={{xuanze.input_type == "multi_select"}} class="select_input" onTap="onTopBtnTap" data-indexDanxuan = {{i}}>
+                  <text a:if = '{{projectAttr[xuanze.en_name].length == 0}}'>
+                    {{projectAttr[xuanze.en_name].length==0?"请选择"+xuanze.zh_name:''}}
+                  </text>
+                  <text a:if = '{{projectAttr[xuanze.en_name].length > 0}}' a:for ='{{projectAttr[xuanze.en_name]}}' a:for-index="indexTitle">
+                    {{item.value_name == ''?(indexTitle==projectAttr[xuanze.en_name].length-1?'Other':'Other、'):(indexTitle==projectAttr[xuanze.en_name].length-1?item.value_name:item.value_name+"、")}}
+                  </text>
+                </view>
+                <view a:else class="select_input" onTap="onTopBtnTap" data-indexDanxuan = {{i}}>{{projectAttr[xuanze.en_name].value_name == ''?'请选择'+xuanze.zh_name:projectAttr[xuanze.en_name].value_name}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 产品规开始开始 -->
+  <view class="shuxing">
+    <view class="page-description">产品规格</view>
+    <view>
+      <view class="page-section" a:for={{have_sku}}>
+        <!-- 判断如果是input框 -->
+        <view a:if={{item.input_type == 'input'}}>
+          <view style="display: flex;justify-content: space-between;padding-bottom: 40rpx;">
+            <view style="display: flex;">
+              <image style="display: {{item.required == 1? 'block': 'none'}};width: 24rpx;height: 24rpx;margin: 10rpx 0 0 -20rpx" src="/image/star.png"/>
+              <text style="color: rgba(102, 102, 102, 1);font-size: 28rpx;width: 172rpx;min-height: 48rpx;line-height: 48rpx;text-align: left;">{{item.zh_name}}</text>
+            </view>
+            <input onBlur="productStandard" placeholder="{{'请填写'+item.zh_name}}" placeholder-class="placeholder-input" data-index={{index}} class="input_shu" value="{{standardCollection[item.en_name].local_option}}" />
+          </view>
+        </view>
+        <!-- 判断如果是单选或者多选 -->
+        <view a:else>
+          <view>
+            <view style="display: flex;justify-content: space-between;padding-bottom: 40rpx;">
+              <view style="display: flex;">
+                <image style="display: {{item.required == 1? 'block': 'none'}};width: 24rpx;height: 24rpx;margin: 10rpx 0 0 -20rpx" src="/image/star.png"/>
+                <text style="color: rgba(102, 102, 102, 1);font-size: 28rpx;width: 172rpx;min-height: 48rpx;line-height: 48rpx;text-align: left;">{{item.zh_name}}</text>
+              </view>
+              <view class="select_input" onTap="onTopBtnTapStandard" data-index= {{index}}>{{standardCollection[item.en_name].local_option==''?'请选择'+item.zh_name:standardCollection[item.en_name].local_option}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 交易信息开始 -->
+  <view class="shuxing">
+    <view class="page-description">交易信息</view>
+    <!--非直接下单交易信息开始  -->
+    <view a:if={{productStyleEnglishName == 'sourcing'}}>
+      <view a:for={{subTitley}}>
+        <view a:if={{item == 'FOB货币符号'}}>
+          <view class="master">
+            <view style="display: flex;margin-left: -28rpx;">
+              <image style="width: 24rpx;height: 24rpx;margin-top: 10rpx;" src="/image/star.png"/>
+              <text class="print">{{item}}</text>
+            </view>
+            <view onTap="currency" class="select_input">
+{{currency_ename==''?'请选择'+item:currency_ename}}
+            </view>
+          </view>
+        </view>
+        <!-- -->
+        <!--  -->
+        <view a:if={{item == '付款方式'}}>
+          <view class="master">
+            <view style="display: flex;">
+              <text class="print">{{item}}</text>
+            </view>
+            <view onTap="payment" class="select_input">
+              {{payment_ename ==''?'请选择付款方式':payment_ename}}
+            </view>
+          </view>
+        </view>
+        <!--  -->
+        <view a:if={{item == '计量单位'}}>
+          <view class="master">
+            <view style="display: flex;margin-left: -28rpx;">
+              <image style="width: 24rpx;height: 24rpx;margin-top: 10rpx;" src="/image/star.png"/>
+              <text class="print">{{item}}</text>
+            </view>
+            <view onTap="indirect_calulate" class="select_input">
+                  {{indirect_calulate_ename==''?'请选择'+item:indirect_calulate_ename }}
+            </view>
+          </view>
+        </view>
+        <!--  -->
+        <view a:if={{item == "折扣设置"}}>
+          <view style="dispaly: flex">
+            <text style="color: rgba(102, 102, 102, 100);font-size: 28rpx;">价格折扣</text>
+            <text onTap="arrAddAttribute_sale" style="margin-left: 440rpx;color: rgba(102, 102, 102, 100);font-size: 28rpx;">添加</text>
+          </view>
+          <view class="min" style="margin: 40rpx">
+            <view style="display: flex;margin-top: 40rpx;margin-left: 76rpx;">
+              <view style="width: 160rpx;height: 40rpx;font-size: 12px;text-align: left;
+    color: rgba(102, 102, 102, 100);">
+      最小起订量
+              </view>
+              <view style="width: 200rpx;height: 40rpx;color: rgba(102, 102, 102, 100);font-size: 24rpx;text-align: left;
+      height: 40rpx;margin-left: 140rpx;">
+       价格折扣（%）
+              </view>
+            </view>
+            <view class="line" style={{discount.length==index+1?"border-bottom: none":"border-bottom: 2rpx solid rgba(187, 187, 187, 100)"}} a:for="{{discount}}" a:key="{{index}}" a:for-index="index">
+              <view style="float: left;width: 268rpx;height: 50rpx;
+     border-right: 2rpx solid rgba(187, 187, 187, 100);margin-top: 20rpx;">
+                <text style="width: 50rpx;height: 100rpx;line-height: 50rpx;margin-left: 40rpx;"> ≥
+                </text>
+                <input onInput="customized_information" data-index_customized_information={{index}} value="{{item.start_quantity}}" type="number" style="width: 180rpx;text-align: left;vertical-align:middle;color: rgba(51,51,51,1);"></input>
+              </view>
+              <!--  -->
+              <view style="float: right;width: 272rpx;height: 50rpx;margin: auto;margin-top: 20rpx;display: flex">
+                <input onInput="customized_information_second" data-index_customized_information_second={{index}} value="{{item.price}}" type="input" style="width: 200rpx;text-align: center;color: rgba(51,51,51,1);"/>
+                <image data-index={{index}} onTap="delete_sale" src="../../image/shanchu_fabu.png" style="width: 30rpx;height: 30rpx;align-self: center;margin-left: 30rpx" />
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--非直接下单交易信息结束  -->
+    <!--直接下单交易信息开始  -->
+    <view a:if={{productStyleEnglishName == 'wholesale'}}>
+      <view a:for={{subTitleZ}}>
+        <view a:if="{{item == '销售方式'}}">
+          <view class="master">
+            <view style="display: flex;margin-left: -28rpx;">
+              <image style="width: 24rpx;height: 24rpx;margin-top: 10rpx;" src="/image/star.png"/>
+              <text class="print">{{item}}</text>
+            </view>
+            <view onTap="sale" class="select_input">
+                  {{sale_ename ==''?'请选择'+item:sale_ename }}
+            </view>
+          </view>
+        </view>
+        <view a:if={{item == '每批数量'&&sale_ename == 'batch'}}>
+          <view class="master">
+            <view style="display: flex;margin-left: -28rpx;">
+              <image style="width: 24rpx;height: 24rpx;margin-top: 10rpx;" src="/image/star.png"/>
+              <text class="print">{{item}}</text>
+            </view>
+            <input onBlur="batch" placeholder-class='placeholder-input' placeholder="{{'请输入'+item}}" value="{{wholesale.batch_number}}" class="input_shu" />
+          </view>
+        </view>
+        <view a:if={{item == '计量单位'}}>
+          <view class="master">
+            <view style="display: flex;margin-left: -28rpx;">
+              <image style="width: 24rpx;height: 24rpx;margin-top: 10rpx;" src="/image/star.png"/>
+              <text class="print">{{item}}</text>
+            </view>
+            <view onTap="calculate" class="select_input">
+                  {{calculate_ename ==''?'请选择'+item:calculate_ename }}
+            </view>
+          </view>
+        </view>
+        <!--直接下单交易信息折扣设置开始  -->
+        <view a:if={{item == "折扣设置"}}>
+          <view style="dispaly: flex">
+            <text style="color: rgba(102, 102, 102, 100);font-size: 28rpx;">折扣设置</text>
+            <text onTap="arrAddAttribute_sale" style="margin-left: 440rpx;color: rgba(102, 102, 102, 100);font-size: 28rpx;">添加</text>
+          </view>
+          <view class="min" style="margin: 40rpx">
+            <view style="display: flex;margin-top: 40rpx;margin-left: 76rpx;">
+              <view style="width: 160rpx;height: 40rpx;font-size: 12px;text-align: left;
+    color: rgba(102, 102, 102, 100);">
+      最小起订量
+              </view>
+              <view style="width: 200rpx;height: 40rpx;color: rgba(102, 102, 102, 100);font-size: 24rpx;text-align: left;
+      height: 40rpx;margin-left: 140rpx;">
+       价格折扣（%）
+              </view>
+            </view>
+            <!-- 数量 -->
+            <!-- 2 -->
+            <view class="line" style={{discount.length==index+1?"border-bottom: none":"border-bottom: 2rpx solid rgba(187, 187, 187, 100)"}} a:for="{{discount}}" a:key="{{index}}" a:for-index="index">
+              <view style="float: left;width: 268rpx;height: 50rpx;
+     border-right: 2rpx solid rgba(187, 187, 187, 100);margin-top: 20rpx;">
+                <text style="width: 50rpx;height: 100rpx;line-height: 50rpx;margin-left: 40rpx;"> ≥
+                </text>
+                <input onInput="customized_information" data-index_customized_information={{index}} value="{{item.start_quantity}}" placeholder-class='placeholder-input' type="number" style="width: 180rpx;text-align: left;vertical-align:middle;color: rgba(51,51,51,1);"></input>
+              </view>
+              <!--  -->
+              <view style="float: right;width: 272rpx;height: 50rpx;margin: auto;margin-top: 20rpx;display: flex">
+                <input onInput="customized_information_second" data-index_customized_information_second={{index}} value="{{item.price}}" placeholder-class='placeholder-input' type="input" style="width: 200rpx;text-align: center;color: rgba(51,51,51,1);"/>
+                <image data-index={{index}} onTap="delete_sale" src="../../image/shanchu_fabu.png" style="width: 30rpx;height: 30rpx;align-self: center;margin-left: 30rpx" />
+              </view>
+            </view>
+          </view>
+        </view>
+        <!--折扣设置结束  -->
+      </view>
+    </view>
+    <!--直接下单交易信息结束  -->
+  </view>
+  <!-- 直接下单物流信息 -->
+  <view class="shuxing" a:if={{productStyleEnglishName == 'wholesale'}}>
+    <view >
+      <view class="page-description">物流信息</view>
+      <view a:for={{subTitleZ}}>
+        <view a:if={{item == '尺寸(厘米)'}}>
+          <view class="master">
+            <view style="display: flex;margin-left: -28rpx;">
+              <image style="width: 24rpx;height: 24rpx;margin-top: 10rpx;" src="/image/star.png"/>
+              <text class="print" style="width: 140rpx;">{{item}}</text>
+            </view>
+            <view style="margin-left: 14rpx;display: flex;background: #fff;">
+              <input placeholder="长" placeholder-class='placeholder-input' value="{{package_size[0]}}" onBlur="size_long" data-index = {{0}} style="height: 28rpx;width: 80rpx;font-size: 24rpx;background: #fff;text-align: center;line-height: 28rpx;padding: 10rpx 0;color: rgba(51,51,51,1);" />
+              <text style="height: 46rpx;line-height: 48rpx;background: #fff;">CM</text>
+              <text style="margin: 0 10rpx;height: 48rpx;line-height: 48rpx;background: rgba(230,230,230,0.3);">X</text>
+              <input placeholder="宽" placeholder-class='placeholder-input' value="{{package_size[1]}}" onBlur="size_width"  data-index = {{1}} style="height: 28rpx;width: 80rpx;font-size: 24rpx;background: #fff;text-align: center;line-height: 28rpx;padding: 10rpx 0;color: rgba(51,51,51,1);" />
+              <text style="height: 46rpx;line-height: 48rpx;background: #fff;">CM</text>
+              <text style="margin: 0 10rpx;height: 48rpx;line-height: 48rpx;background: rgba(230,230,230,0.3);">X</text>
+              <input placeholder="高" placeholder-class='placeholder-input' value="{{package_size[2]}}" onBlur="size_height"  data-index = {{2}} style="height: 28rpx;width: 80rpx;font-size: 24rpx;background: #fff;text-align: center;line-height: 28rpx;padding: 10rpx 0;color: rgba(51,51,51,1);" />
+              <text style="height: 46rpx;line-height: 48rpx;background: #fff;">CM</text>
+            </view>
+          </view>
+        </view>
+        <view a:if={{item == '运费模板'}}>
+          <view class="master">
+            <view style="display: flex;margin-left: -28rpx;">
+              <image style="width: 24rpx;height: 24rpx;margin-top: 10rpx;" src="/image/star.png"/>
+              <text class="print">{{item}}</text>
+            </view>
+            <view onTap="freight" class="select_input">
+                  {{templateName ==''?'请选择'+item:templateName }}
+            </view>
+          </view>
+        </view>
+        <!--直接下单物流发货周期开始 -->
+        <view a:if={{item == "发货周期"}}>
+          <view style="dispaly: flex">
+            <text style="color: rgba(102, 102, 102, 100);font-size: 28rpx;">发货周期</text>
+            <text onTap="arrAddAttribute_period" style="margin-left: 440rpx;">添加</text>
+          </view>
+          <view class="min" style="margin: 40rpx">
+            <view style="display: flex;margin-top: 40rpx;margin-left: 76rpx;">
+              <view style="width: 120rpx;height: 40rpx;font-size: 12px;text-align: left;
+    color: rgba(102, 102, 102, 100);">
+      数量
+              </view>
+              <view style="width: 200rpx;height: 40rpx;color: rgba(102, 102, 102, 100);font-size: 24rpx;text-align: left;
+      height: 40rpx;margin-left: 184rpx;">
+       预计时间(天)
+              </view>
+            </view>
+            <!-- 数量 -->
+            <!-- 2 -->
+            <view class="line" style={{deliver_periods.length==index+1?"border-bottom: none":"border-bottom: 2rpx solid rgba(187, 187, 187, 100)"}} a:for="{{deliver_periods}}" a:key="{{index}}" a:for-index="index">
+              <view style="float: left;width: 268rpx;height: 50rpx;
+     border-right: 2rpx solid rgba(187, 187, 187, 100);margin-top: 20rpx;">
+                <text style="width: 50rpx;height: 100rpx;line-height: 50rpx;margin-left: 40rpx;"> ≥
+                </text>
+                <input onInput='process_period' data-index_process_period={{index}} value="{{item.process_period}}" placeholder-class='placeholder-input' type="number" style="width: 180rpx;text-align: left;vertical-align:middle;color: rgba(51,51,51,1);"></input>
+              </view>
+              <!--  -->
+              <view style="float: right;width: 272rpx;height: 50rpx;margin: auto;margin-top: 20rpx;display: flex">
+                <input onInput='process_period_second' data-index_process_period_second={{index}} value="{{item.quantity}}" placeholder-class='placeholder-input' type="input" style="width: 200rpx;text-align: center;color: rgba(51,51,51,1);"/>
+                <image data-index={{index}} onTap="delete_period" src="../../image/shanchu_fabu.png" style="width: 30rpx;height: 30rpx;align-self: center;margin-left: 30rpx" />
+              </view>
+            </view>
+          </view>
+        </view>
+        <!--折扣设置结束  -->
+      </view>
+    </view>
+  </view>
+  <!--直接下单物流信息结束  -->
+  <!-- 非直接下单物流信息开始 -->
+  <view class="shuxing" a:if={{productStyleEnglishName == 'sourcing'}}>
+    <view >
+      <view class="page-description">物流信息</view>
+      <view a:for={{subTitley}}>
+        <view a:if={{item == 'FOB计量单位'}}>
+          <view class="master">
+            <view style="display: flex;margin-left: -28rpx;">
+              <image style="width: 24rpx;height: 24rpx;margin-top: 10rpx;" src="/image/star.png"/>
+              <text class="print">{{item}}</text>
+            </view>
+            <view onTap="calculate_f" class="select_input">{{calculate_f_ename==''?'请选择'+item:calculate_f_ename}}
+            </view>
+          </view>
+        </view>
+        <view a:if={{item == '供货能力周期'}}>
+          <view class="master">
+            <view style="display: flex;margin-left: -28rpx;">
+              <image style="width: 24rpx;height: 24rpx;margin-top: 10rpx;" src="/image/star.png"/>
+              <text class="print">{{item}}</text>
+            </view>
+            <view onTap="Availability_cycle" class="select_input">
+{{Availability_cycle_ename==''?'请选择'+item:Availability_cycle_ename}}
+            </view>
+          </view>
+        </view>
+        <view a:if={{item == '供货能力计量单位'}}>
+          <view class="master">
+            <view style="display: flex;margin-left: -28rpx;">
+              <image style="width: 24rpx;height: 24rpx;margin-top: 10rpx;" src="/image/star.png"/>
+              <text class="print">{{item}}</text>
+            </view>
+            <text onTap="measure_of_availability" class="select_input" style="height: 28rpx;">
+                  {{measure_of_availability_ename==''?'请输入'+item:measure_of_availability_ename}}
+            </text>
+          </view>
+        </view>
+        <view a:if={{item == '最小起订量'}}>
+          <view class="master">
+            <view style="display: flex;margin-left: -28rpx;">
+              <image style="width: 24rpx;height: 24rpx;margin-top: 10rpx;" src="/image/star.png"/>
+              <text class="print">{{item}}</text>
+            </view>
+            <input onBlur="min_order_quantity" placeholder-class='placeholder-input' placeholder="{{'请输入'+item}}" value="{{sourcing.min_order_quantity}}" class="input_shu" />
+          </view>
+        </view>
+        <view a:if={{item == '供货能力'}}>
+          <view class="master">
+            <view style="display: flex;">
+              <text class="columns">{{item}}</text>
+            </view>
+            <input onBlur="supply_quantity" placeholder-class='placeholder-input' placeholder="{{'请输入'+item}}" value="{{sourcing.supply_quantity}}" class="input_shu" />
+          </view>
+        </view>
+        <!--  -->
+        <!--  -->
+        <view a:if={{item == '发货期限'}}>
+          <view class="master">
+            <view style="display: flex;">
+              <text class="columns">{{item}}</text>
+            </view>
+            <input onBlur="delivery_time" placeholder-class='placeholder-input' placeholder="{{'请输入'+item}}" value="{{sourcing.delivery_time}}"class="input_shu" />
+          </view>
+        </view>
+        <view a:if={{item == '发货港口'}}>
+          <view class="master">
+            <view style="display: flex;">
+              <text class="columns">{{item}}</text>
+            </view>
+            <input onBlur="delivery_port" placeholder-class='placeholder-input' placeholder="{{'请输入'+item}}" value="{{sourcing.delivery_port}}" class="input_shu" />
+          </view>
+        </view>
+        <view a:if={{item == '包装信息'}}>
+          <view class="master">
+            <text style="color: rgba(102, 102, 102, 100);font-size: 28rpx;">{{item}}</text>
+            <input onBlur="packaging_desc" placeholder-class='placeholder-input' placeholder="{{'请输入'+item}}" value="{{sourcing.packaging_desc}}" class="input_shu" />
+          </view>
+        </view>
+        <!--非直接下单物流发货周期开始 -->
+        <view a:if={{item == "发货周期"}}>
+          <view style="dispaly: flex">
+            <text style="color: rgba(102, 102, 102, 100);font-size: 28rpx;">发货周期</text>
+            <text onTap="arrAddAttribute_i_period" style="margin-left: 440rpx;color: rgba(102, 102, 102, 100);font-size: 28rpx;">添加</text>
+          </view>
+          <view class="min" style="margin: 40rpx">
+            <view style="display: flex;margin-top: 40rpx;margin-left: 76rpx;">
+              <view style="width: 120rpx;height: 40rpx;font-size: 12px;text-align: left;
+    color: rgba(102, 102, 102, 100);">
+      数量
+              </view>
+              <view style="width: 200rpx;height: 40rpx;color: rgba(102, 102, 102, 100);font-size: 24rpx;text-align: left;
+      height: 40rpx;margin-left: 184rpx;">
+       预计时间(天)
+              </view>
+            </view>
+            <!-- 数量 -->
+            <!-- 2 -->
+            <view class="line" style={{deliver_i_periods.length==index+1?"border-bottom: none":"border-bottom: 2rpx solid rgba(187, 187, 187, 100)"}} a:for="{{deliver_i_periods}}" a:key="{{index}}" a:for-index="index">
+              <view style="float: left;width: 268rpx;height: 50rpx;
+     border-right: 2rpx solid rgba(187, 187, 187, 100);margin-top: 20rpx;">
+                <text style="width: 50rpx;height: 100rpx;line-height: 50rpx;margin-left: 40rpx;"> ≥
+                </text>
+                <input onInput="deliver_i_periods" data-index_deliver_i_periods={{index}} value="{{item.process_period}}" placeholder-class='placeholder-input' type="number" style="width: 180rpx;text-align: left;vertical-align:middle"></input>
+              </view>
+              <!--  -->
+              <view style="float: right;width: 272rpx;height: 50rpx;margin: auto;margin-top: 20rpx;display: flex">
+                <input onInput="deliver_i_periods_second" data-index_deliver_i_periods_second={{index}} value="{{item.quantity}}" placeholder-class='placeholder-input' type="input" style="width: 200rpx;text-align: center;"/>
+                <image data-index={{index}} onTap="delete_i_period" src="../../image/shanchu_fabu.png" style="width: 30rpx;height: 30rpx;align-self: center;margin-left: 30rpx" />
+              </view>
+            </view>
+          </view>
+        </view>
+        <!--折扣设置结束  -->
+      </view>
+    </view>
+  </view>
+  <!-- 非直接下单物流信息结束 -->
+  <!-- 定制信息开始 -->
+  <view class="dingzhi">
+    <view class="page-description" style="dispaly: flex">
+      <text >定制信息</text>
+      <text onTap="arrAddAttribute" style="margin-left: 440rpx;">添加</text>
+    </view>
+    <view class="min" style="margin: 40rpx">
+      <view style="display: flex;margin-top: 40rpx;margin-left: 76rpx;">
+        <view style="width: 180rpx;height: 40rpx;font-size: 12px;text-align: left;
+    color: rgba(102, 102, 102, 100);">
+      最小起订量
+        </view>
+        <view style="width: 200rpx;height: 40rpx;color: rgba(102, 102, 102, 100);font-size: 24rpx;text-align: left;
+      height: 40rpx;margin-left: 140rpx;">
+      定制类型
+        </view>
+      </view>
+      <!-- 数量 -->
+      <!-- 2 -->
+      <view class="line" style={{custom.length==index+1?"border-bottom: none":"border-bottom: 2rpx solid rgba(187, 187, 187, 100)"}} a:for="{{custom}}" a:key="{{index}}" a:for-index="index">
+        <view style="float: left;width: 268rpx;height: 50rpx;
+     border-right: 2rpx solid rgba(187, 187, 187, 100);margin-top: 20rpx;">
+          <text style="width: 50rpx;height: 100rpx;line-height: 50rpx;margin-left: 40rpx;"> ≥
+          </text>
+          <input onInput="lose_focus_second" data-index_lose_focus_second={{index}} value="{{item.min_order_quantity}}" placeholder-class='placeholder-input' type="number" style="width: 180rpx;text-align: left;vertical-align:middle;color: rgba(51,51,51,1);"></input>
+        </view>
+        <!--  -->
+        <view style="float: right;width: 272rpx;height: 50rpx;margin: auto;margin-top: 20rpx;display: flex">
+          <input onInput="lose_focus" data-index_lose_focus={{index}} value="{{item.custom_type}}" placeholder-class='placeholder-input' type="input" style="width: 200rpx;text-align: center;color: rgba(51,51,51,1);"/>
+          <image data-index={{index}} onTap="delete" src="../../image/shanchu_fabu.png" style="width: 30rpx;height: 30rpx;align-self: center;margin-left: 30rpx" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 定制信息结束 -->
+  <!-- 非直接下单物流FOB计量单位弹起开始 -->
+  <popup show="{{showTop_f_measuring}}" disableScroll="{{false}}">
+    <view class=" danxuan">
+      <view class="whiteSpace">
+      </view>
+      <view onTap="define" class="confirm">
+        <text>确定</text>
+      </view>
+      <view class="auto">
+      </view>
+      <view a:for={{measuring_unit}} a:for-item="select">
+        <view class="discolor" style="background:{{calculate_f_ename == select.en_name ?'linear-gradient(92deg,#ffba40 0%,#ff503e 37%,#ff2f50 81%,#ff1b40 100%)':'#fff'}};" data-calculate_ename={{select.en_name}} onTap="calculate_f_Top">
+          <view class="space">
+            <text>{{select.zh_name}}</text>
+            <text>{{select.en_name}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </popup>
+  <!-- 非直接下单物流FOB计量单位弹起结束 -->
+  <!--非直接下单物流发货周期开始  -->
+  <popup show="{{showTop_Availability_cycle}}" disableScroll="{{false}}">
+    <view class="danxuan">
+      <view class="whiteSpace">
+      </view>
+      <view onTap="define" class="confirm">
+        <text>确定</text>
+      </view>
+      <view class="auto">
+      </view>
+      <view a:for={{Availability_cycle_unit}} a:for-item="select">
+        <view style="min-height:40rpx;min-line-height:40rpx;padding: 20rpx;margin-bottom:20rpx;border-radius: 20rpx;background:{{Availability_cycle_ename == select.en_name ?'linear-gradient(92deg,#ffba40 0%,#ff503e 37%,#ff2f50 81%,#ff1b40 100%)':'#fff'}};" data-calculate_ename={{select.en_name}} onTap="Availability_cycle_Top">
+          <view class="space">
+            <text>{{select.zh_name}}</text>
+            <text>{{select.en_name}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </popup>
+  <!--非直接下单物流发货周期结束  -->
+  <!--非直接下单物流供货能力计量单位开始  -->
+  <popup show="{{showTop_measure_of_availability}}" disableScroll="{{false}}">
+    <view class="danxuan">
+      <view class="whiteSpace">
+      </view>
+      <view onTap="define" class="confirm">
+        <text>确定</text>
+      </view>
+      <view class="auto">
+      </view>
+      <view a:for={{measuring_unit}} a:for-item="select">
+        <view class="discolor" style="background:{{measure_of_availability_ename == select.en_name ?'linear-gradient(92deg,#ffba40 0%,#ff503e 37%,#ff2f50 81%,#ff1b40 100%)':'#fff'}};" data-calculate_ename={{select.en_name}} onTap="measure_of_availability_Top">
+          <view class="space">
+            <text>{{select.zh_name}}</text>
+            <text>{{select.en_name}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </popup>
+  <!--非直接下单物流供货能力计量单位结束  -->
+  <!-- 定制信息 -->
+  <!-- 产品分组popup开始 -->
+  <popup show="{{showTopProductGroup}}" disableScroll="{{false}}">
+    <view class="danxuan">
+      <view class="whiteSpace">
+      </view>
+      <view onTap="define" class="confirm">
+        <text>确定</text>
+      </view>
+      <view class="auto">
+      </view>
+      <view a:for={{group}} a:for-item="select">
+        <view class="discolor" style="background: {{select.group_name == groupName?'linear-gradient(92deg,#ffba40 0%,#ff503e 37%,#ff2f50 81%,#ff1b40 100%)':'#fff'}}" onTap="productGroupTap" data-group_name = {{select.group_name}} data-group_id = {{select.group_id}}>
+          <view class="space">
+            <text>{{select.group_name}}</text>
+            <text>{{select.group_name}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </popup>
+  <!-- 产品分组popup结束 -->
+  <!-- 产品属性popup开始 -->
+  <popup show="{{showTop1}}" disableScroll="{{false}}">
+    <view class="danxuan">
+      <view class="whiteSpace">
+      </view>
+      <view onTap="define" class="confirm">
+        <text>确定</text>
+      </view>
+      <view class="auto">
+      </view>
+      <view a:for={{no_sku[idx].subset}} a:for-item="select">
+        <view class="discolor" style="background:{{no_sku[idx].input_type=='single_select'?
+          (projectAttr[no_sku[idx].en_name] && projectAttr[no_sku[idx].en_name].value_name=== select.en_name?'linear-gradient(92deg,#ffba40 0%,#ff503e 37%,#ff2f50 81%,#ff1b40 100%)':'#fff'):new_en_name.indexOf(select.en_name) !== -1?'linear-gradient(92deg,#ffba40 0%,#ff503e 37%,#ff2f50 81%,#ff1b40 100%)':'#fff'}};" data-enName={{select.en_name}} data-value_id={{select.attribute_value_id}} onTap="selectDanxuan">
+          <view class="space">
+            <text>{{select.zh_name}}</text>
+            <text>{{select.en_name}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </popup>
+  <!-- 产品属性popup结束 -->
+  <!-- 产品规格popup开始 -->
+  <popup show="{{showTopStandard}}" disableScroll="{{false}}">
+    <view class="danxuan">
+      <view class="whiteSpace">
+      </view>
+      <view onTap="define" class="confirm">
+        <text>确定</text>
+      </view>
+      <view class="auto">
+      </view>
+      <view a:for={{have_sku[standardIndex].subset}} a:for-item="select">
+        <view class="discolor" style="background:{{standardCollection[have_sku[standardIndex].en_name] &&
+         standardCollection[have_sku[standardIndex].en_name].local_option=== select.en_name?'linear-gradient(92deg,#ffba40 0%,#ff503e 37%,#ff2f50 81%,#ff1b40 100%)':'#fff'}}" data-enName={{select.en_name}} onTap="standardSelect">
+          <view class="space">
+            <text>{{select.zh_name}}</text>
+            <text>{{select.en_name}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </popup>
+  <!-- 产品规格popup结束 -->
+  <!-- FOB货币符号开始 -->
+  <popup show="{{showTop_currency}}" disableScroll="{{false}}">
+    <view class="danxuan">
+      <view class="whiteSpace">
+      </view>
+      <view onTap="define" class="confirm">
+        <text>确定</text>
+      </view>
+      <view class="auto">
+      </view>
+      <view a:for={{currency_unit}} a:for-item="select">
+        <view class="discolor" style="background:{{currency_ename == select.en_name ?'linear-gradient(92deg,#ffba40 0%,#ff503e 37%,#ff2f50 81%,#ff1b40 100%)':'#fff'}};" data-calculate_ename={{select.en_name}} onTap="currencyTop">
+          <view class="space">
+            <text>{{select.zh_name}}</text>
+            <text>{{select.en_name}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </popup>
+  <!-- FOB货币符号结束 -->
+  <!-- 非直接下单计量单位开始 -->
+  <popup show="{{showTop_indirect_calulate}}" disableScroll="{{false}}">
+    <view class="danxuan">
+      <view class="whiteSpace">
+      </view>
+      <view onTap="define" class="confirm">
+        <text>确定</text>
+      </view>
+      <view class="auto">
+      </view>
+      <view a:for={{measuring_unit}} a:for-item="select">
+        <view style="min-height:40rpx;min-line-height:40rpx;padding: 20rpx;margin-bottom:20rpx;border-radius: 20rpx;background:{{indirect_calulate_ename == select.en_name ?'linear-gradient(92deg,#ffba40 0%,#ff503e 37%,#ff2f50 81%,#ff1b40 100%)':'#fff'}};" data-calculate_ename={{select.en_name}} onTap="indirect_calulateTop">
+          <view class="space">
+            <text>{{select.zh_name}}</text>
+            <text>{{select.en_name}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </popup>
+  <!-- 非直接下单计量单位结束 -->
+  <!-- 非直接付款方式开始 -->
+  <popup show="{{showTop_payment}}" disableScroll="{{false}}">
+    <view class="danxuan">
+      <view class="whiteSpace">
+      </view>
+      <view onTap="define" class="confirm">
+        <text>确定</text>
+      </view>
+      <view class="auto">
+      </view>
+      <view a:for={{payment_unit}} a:for-item="select">
+        <view class="discolor" style="background:{{payment_ename.includes(select.en_name) ?'linear-gradient(92deg,#ffba40 0%,#ff503e 37%,#ff2f50 81%,#ff1b40 100%)':'#fff'}};" data-calculate_ename={{select.en_name}} onTap="paymentTop">
+          <view class="space">
+            <text>{{select.zh_name}}</text>
+            <text>{{select.en_name}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </popup>
+  <!-- 非直接付款方式结束 -->
+  <!-- 计量单位弹起 -->
+  <popup show="{{showTop_measuring}}" disableScroll="{{false}}">
+    <view class="danxuan">
+      <view class="whiteSpace">
+      </view>
+      <view onTap="define" class="confirm">
+        <text>确定</text>
+      </view>
+      <view class="auto">
+      </view>
+      <view a:for={{measuring_unit}} a:for-item="select">
+        <view class="discolor" style="background:{{calculate_ename == select.en_name ?'linear-gradient(92deg,#ffba40 0%,#ff503e 37%,#ff2f50 81%,#ff1b40 100%)':'#fff'}};" data-calculate_ename={{select.en_name}} onTap="calculateTop">
+          <view class="space">
+            <text>{{select.zh_name}}</text>
+            <text>{{select.en_name}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </popup>
+  <!-- 计量单位结束 -->
+  <!-- 销售方式弹起 -->
+  <popup show="{{showTop_sale}}" disableScroll="{{false}}">
+    <view class="danxuan">
+      <view class="whiteSpace">
+      </view>
+      <view onTap="define" class="confirm">
+        <text>确定</text>
+      </view>
+      <view class="auto">
+      </view>
+      <view a:for={{sales_method}} a:for-item="select">
+        <view class="discolor" style="background:{{sale_ename == select.en_name ?'linear-gradient(92deg,#ffba40 0%,#ff503e 37%,#ff2f50 81%,#ff1b40 100%)':'#fff'}};" data-calculate_ename={{select.en_name}} onTap="saleTop">
+          <view class="space">
+            <text>{{select.zh_name}}</text>
+            <text>{{select.en_name}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </popup>
+  <!-- 销售方式弹起结束 -->
+  <!-- 运费模板弹起 -->
+  <!-- 直接下单运费模板popup开始 -->
+  <popup show="{{showTop_freight}}" disableScroll="{{false}}">
+    <view class="danxuan">
+      <view class="whiteSpace">
+      </view>
+      <view onTap="define" class="confirm">
+        <text>确定</text></view>
+      <view class="auto"></view>
+      <view a:for={{templateFreight}} a:for-item="select">
+        <view class="discolor" style="background: {{select.text == templateName?'linear-gradient(92deg,#ffba40 0%,#ff503e 37%,#ff2f50 81%,#ff1b40 100%)':'#fff'}}" onTap="freightTop" data-template_name = {{select.text}} data-template_id = {{select.selectedId}}>
+          <view class="space">
+            <text>{{select.text}}</text>
+            <text>{{select.text}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </popup>
+  <view class="demo-btn-container">
+    <button class="demo-btna" onTap="backToPage">返回</button>
+    <button class="demo-btna" onTap="submit">提交</button>
+  </view>
+  <view style="width: 750rpx;height: 68rpx;background:  rgba(248, 248, 248, 100);;"></view>
+</view>
+<!--<view onTap="change">
+1111</view> -->

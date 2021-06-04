@@ -1,0 +1,106 @@
+
+.nav-title-me {
+  margin: 0 auto;
+  width: 192rpx;
+  color: rgba(0, 0, 0, 1);
+  font-size: 48rpx;
+  font-family: PingFangSC-regular;
+  margin-top: 60rpx;
+}
+.nav {
+  height: 80rpx;
+  position: fixed;
+  width: 750rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+  line-height: 76rpx;
+  background: #FFFFFF; 
+  font-size: 28rpx;
+  white-space: nowrap;
+  display: flex;
+  box-sizing: border-box;
+  z-index: 999;
+}
+.nav::-webkit-scrollbar {
+  display: none;
+}
+.nav-item {
+  flex-shrink: 0;
+  -webkit-box-flex: 0;
+  flex-grow: 0;
+  width: 25%;
+  height: 76rpx;
+  text-align: center;
+}
+.active{ 
+  display: inline-block;
+  color:#4884EE;
+  border-bottom: 2px solid #4884EE;
+  position: relative; 
+  top:-2rpx;
+}
+.tab-box{
+  height: 1150rpx !important;
+  background:#F5F5F5;
+  box-sizing: border-box;
+  position: relative;
+    top: 83rpx;
+}
+.tab-content{
+  margin-top: 1rpx;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 200rpx;
+}
+.image{
+  box-sizing: border-box;
+  margin-left: 0rpx;
+  margin-top: 20rpx;
+  width:320rpx;
+  height:300rpx;
+  overflow: hidden;
+    position: relative;
+    left: 9px;
+    margin-right: 17px;
+}
+.tab-content1{
+  background: #FFFFFF;
+  text-align: center;
+  font-size: 30rpx;
+  color: #6d6a6a;
+  
+}
+.tab-content2{
+  background: #FFFFFF;
+  
+}
+.text{
+  position: relative;
+    top: 300rpx;
+}
+.dixian{
+  background-color: rgb(160 160 160);
+  height: 2rpx;
+  width:100%;
+  position: fixed;
+  bottom: 0;
+  top: 40rpx;
+}
+.dicengwenzi{
+  position: relative;
+  text-align: center;
+  margin-top: 49rpx;
+  margin-bottom: 30rpx;
+  margin-left: 2rem;
+}
+.img-size {
+  width: 100%;
+  margin: auto;
+
+}
+
+.liucheng-img {
+  width: 100%;
+  overflow-y: scroll;
+}

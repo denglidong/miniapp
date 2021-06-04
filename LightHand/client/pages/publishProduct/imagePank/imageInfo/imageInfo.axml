@@ -1,0 +1,28 @@
+<view style="width:100%;display:flex;position:fixed;top:0;height:10%;z-index:99;background-color:#fff;">
+  <view class="nav-title-me" style="text-align:center;">
+    图片
+  </view>
+</view>
+<view style="width:100%;display:flex;position:fixed;top:10%;height:5.8%;z-index:99;background-color:rgba(51, 51, 51, 1);justify-content: space-between;">
+  <view class="title_btn" onTap="backpublishProduct">
+    取消
+  </view>
+  <view class="title_btn">
+    {{imageSubList[0].group_title}}
+  </view>
+  <!-- 按钮禁用修改未完成 -->
+  <view class="{{checked?'title_btn_send':'title_btn_send_fff'}}" onTap="{{checked?'noImage':'saveImageToimagePank'}}">
+    发送
+  </view>
+</view>
+<view style="margin-top:{{topMargin}}rpx;">
+  <view class="imageinfo">
+    <view a:for="{{imageSubList}}" style="width:25%;height:187.5rpx;position: relative;overflow: hidden;" data-imgPath="{{imageSubList[index].img_path}}" data-index="{{index}}" onTap="sendImage">
+      <view>
+        <image mode="widthFix" style="width:100%;" src="{{item.img_path}}"/>
+        <image mode="widthFix" style="position:absolute;top:18rpx;right:26rpx;width:32rpx;" src="{{item.checked?'../../../../image/xuanzhong_hou.png':'../../../../image/xuanzhong_qian.png'}}"/>
+      </view>
+      <view style="width:25%;height:187rpx;background-color:rgba(0,0,0,0.2);" hidden="{{isHideImgChoose}}"></view>
+    </view>
+  </view>
+</view>

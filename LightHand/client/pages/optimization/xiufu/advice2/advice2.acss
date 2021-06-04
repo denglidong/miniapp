@@ -1,0 +1,182 @@
+.youhu_title{
+margin-left: 69px;
+
+width: 264px;
+height: 36px;
+color: rgba(51, 51, 51, 100);
+font-size: 12px;
+text-align: left;
+font-family: PingFangSC-regular;
+
+}
+/* .youhua_top{
+width: 702rpx;
+
+line-height: 1.8;
+font-weight: bold;
+margin-left: 12px;
+background-color:rgb(255, 255, 255);
+border-radius: 10px;
+box-shadow: 0px 3px 4px 0px rgba(4, 0, 0, 0.2);
+overflow: hidden;
+
+} */
+
+
+.youhua_divder{
+  height: 2px;
+  background-color: rgb(194, 194, 194);
+}
+/* .youhua_top2{
+  margin-top: 5px;
+  margin-bottom: 5px;
+
+  display: flex;
+  align-items: center;
+  
+  font-size: 14px;
+}
+.youhua_top2 text{
+  margin-left: 12px;
+}
+.youhua_top3{
+  height: 160px;
+
+ 
+  
+  font-size: 12px;
+}
+.youhua_top3 text{
+  margin-left: 12px;
+  display: flex;
+} */
+
+
+
+
+.youhua_bottom{
+margin-top: 20px;
+width: 702rpx;
+height: 500rpx;
+/* display: flex; */
+flex-wrap: wrap;
+float: left;
+line-height: 1.5;
+font-weight: bold;
+margin-left: 12px;
+background-color:rgb(255, 255, 255);
+border-radius: 10px;
+box-shadow: 0px 3px 4px 0px rgba(4, 0, 0, 0.2);
+margin-bottom: 68px;
+}
+.youhua_bottom image{
+
+
+  margin-top:10rpx;
+  margin-left: 40rpx;
+  float: left;
+
+  margin-bottom: 20rpx;
+  
+}
+/* .youhua_bottom text{
+ 
+  width: 680rpx;
+  margin-left: 30px;
+  margin-bottom: 10px;
+  
+} */
+
+
+
+
+
+
+
+/* 产品属性 */
+.shuxing {
+  width: 700rpx;
+  margin-top: 60px;
+  border-radius: 12rpx;
+  margin-top: 44rpx;
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+  border: 2rpx solid rgba(255, 255, 255, 100);
+
+  
+   overflow: hidden;
+}
+.page-description {
+  width: 678rpx;
+  height: 78rpx;
+  line-height: 78rpx;
+  overflow: hidden;
+
+  margin-left: 22rpx;
+  color: rgba(102, 102, 102, 100);
+  font-size: 32rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+   border-bottom: 2rpx solid rgba(187, 187, 187, 100);
+}
+.page-section {
+  margin: 34rpx 46rpx 34rpx 44rpx;
+}
+
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  /* border-top: 1px solid red; */
+  /* align-items: center; */
+  /* padding: 0 30rpx; */
+  
+}
+
+
+.row-title {
+  
+ width: 188rpx;
+ height: 40rpx;
+ color: rgba(102, 102, 102, 100);
+ font-size: 28rpx;
+ line-height: 40rpx;
+ text-align: left;
+ font-family: PingFangSC-regular;
+ margin: auto;
+}
+
+.row-extra {
+  width: 300rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin-left: 50rpx;
+ 
+  background-color:rgb(255, 255, 255);
+  color: rgba(102, 102, 102, 100);
+  font-size: 28rpx;
+  text-align: left;
+  font-family: Arial;
+  
+ 
+}
+
+.row-arrow {
+ 
+  width: 60rpx;
+  height: 60rpx; 
+  text-align: center;
+  
+}
+
+/* 产品规格 */
+.guige {
+  width: 702rpx;
+ 
+  margin-top: 44rpx;
+  margin-left:24rpx;
+  background-color:rgb(255, 255, 255);
+ border: 2rpx solid rgba(255, 255, 255, 100);
+ border-radius: 6px;
+
+}

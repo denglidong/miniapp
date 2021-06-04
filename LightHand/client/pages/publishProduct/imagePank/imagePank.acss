@@ -1,0 +1,47 @@
+page {
+  padding-top: 18%;
+  padding-bottom: 4%;
+}
+
+.nav-title-me {
+  margin: 0 auto;
+  width: 192rpx;
+  color: rgba(0, 0, 0, 1);
+  font-size: 48rpx;
+  font-family: "PingFangSC-regular";
+  margin-top: 60rpx;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.imgGrouptop {
+  width: 686rpx;
+  height: 310rpx;
+  margin-top: 40rpx;
+  margin-bottom: 26rpx;
+  border-radius: 32rpx;
+  background-color: rgba(102, 102, 102, 0.3);
+}
+
+.imageGroup {
+  width: 320rpx;
+  height: 400rpx;
+  border-radius: 32px;
+  margin-bottom: 26rpx;
+  background-color: rgba(102, 102, 102, 0.3);
+}
+
+.imageSubGroup {
+  width: 240rpx;
+  height: 38rpx;
+  padding: 10rpx;
+  margin: 0 auto;
+  border-radius: 16px;
+  text-align: center;
+  margin-top: 12rpx;
+  background-color: rgba(255, 255, 255, 0.6);
+}

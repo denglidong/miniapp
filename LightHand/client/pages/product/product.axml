@@ -1,0 +1,222 @@
+<mask type="{{'market'}}" show="{{showMaskTap}}" maskZindex="{{'999'}}"></mask>
+<!--<view><view>
+  信息存入缓存中</view><view>
+  获取缓存中信息</view></view> -->
+<view style="margin-top:{{marginTop}}%">
+  <view style="width:100%;height:25%;position:fixed;top:{{bgHeight}}%;z-index:40;background-color:#fff;"></view>
+  <view style="width:100%;position:fixed;top:{{topNum}}%;z-index:80;">
+    <search-bar value="{{value}}" placeholder="商品英文名称" onInput="handleInput" onSubmit="search" onFocus="inputSearch" onBlur="inputSearch1" showCancelButton="{{false}}" />
+  </view>
+  <view>
+    <view style="width:100%;position:fixed;top:{{topNum1}}%;z-index:80;">
+      <tabs tabs="{{tabs}}" showPlus="{{false}}" onTabClick="handleTabClick" onChange="handleTabChange" activeTab="{{activeTab}}" swipeable="{{true}}">
+        <block a:for="{{tabs}}" data-index="{{index}}"></block>
+      </tabs>
+    </view>
+    <view>
+      <view a:for="{{tabs}}">
+        <scroll-view scroll-y='true' scroll-top='{{ scrolltopNum }}'>
+          <view a:if="{{item.title=='销售中'&&activeTab==0}}" class="tab-bg-color">
+            <view style="width:100%;position:fixed;top:{{topNum2}}%;z-index:80;">
+              <dropdownmenu dropDownMenuTitle='{{dropDownMenuTitle}}' dropDownMenuSourceData='{{data2}}' dropDownMenuFilterData='{{data4}}' onSelectedItem='SelectedItem' />
+            </view>
+            <!--dropDownMenuStyleData='{{data3}}'-->
+            <view class="product-count" style="width:92%;height:30rpx;position:fixed;top:{{topNum3}}%;z-index:41;background-color:#f5f5f5;display:flex;justify-content: space-between;">
+              <view>
+              商品数量：{{productTotal}}
+              </view>
+              <view>
+                <!-- style="display:flex;" -->
+                <view onTap="tongBuProCount" style="color:rgb(16, 142, 233);margin-bottom:10rpx;text-align:right;">
+                  <!-- hidden="{{productTotal>0?true:false}}" -->
+                同步线上商品
+                </view>
+                <view style="color: rgba(0, 0, 0, 0.7);margin-bottom:10rpx;text-align:right;">
+                {{SYNCTime}}
+                </view>
+                <view style="margin-bottom:10rpx;text-align:right;color:rgba(0, 0, 0, 0.7);">
+                {{SYNCInfo}}
+                </view>
+              </view>
+            </view>
+            <view a:for="{{productList}}" a:for-index="idx" a:for-item="itemSell" a:key="{{item.value}}" class="item-mrg">
+              <view class="item-content">
+                <view class="item-content-header">
+                  <text>产品分组：{{itemSell.group_name}}</text>
+                  <text style="float:right;">{{itemSell.add_time}}</text>
+                </view>
+                <image src="{{itemSell.image.url==''?itemSell.image.original:itemSell.image.url}}" class="item-content-img" mode="scaleToFill" data-index="{{idx}}" onTap="showBigImage"></image>
+                <view class="item-content-right">
+                  <view class="item-content-title">{{itemSell.subject}}</view>
+                  <view class="item-content-productid">ID:{{itemSell.alibaba_product_id}}</view>
+                  <view class="item-content-property">
+                    {{itemSell.product_type=='wholesale'?'直接下单品':itemSell.product_type=='sourcing'?'非直接下单品':'未选择类型'}}
+                  </view>
+                  <view class="item-content-downimg">
+                    <image mode="widthFix" class="item-downing-size" src="{{itemSell.isShow==true?default:img}}" data-index="{{idx}}" onTap="showToggle"/>
+                  </view>
+                </view>
+              </view>
+              <view class="item-content-footer" hidden="{{itemSell.isShow}}">
+                <view class="item-footer-fun">
+                  <view class="item-footer-fun-sty" data-index="{{idx}}" onTap="offShop">
+                    <image mode="widthFix" class="item-footer-img" src="/image/xiajia.png"/>
+                    <view class="item-footer-align">下架</view>
+                  </view>
+                </view>
+                <view class="item-footer-fun">
+                  <view class="item-footer-fun-sty" data-index="{{idx}}" onTap="delShop">
+                    <image mode="widthFix" class="item-footer-img" src="/image/shanchu.png"/>
+                    <view class="item-footer-align">删除</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class="item-footer-onload" hidden="{{onShowLoading}}">{{productList.length < productTotal?'上滑加载更多':'没有更多商品了'}}</view>
+          </view>
+          <view a:if="{{item.title=='审核中'&&activeTab==1}}" class="tab-bg-color">
+            <view style="width:100%;position:fixed;top:{{topNum2}}%;z-index:80;">
+              <dropdownmenu dropDownMenuTitle='{{dropDownMenuTitle}}' dropDownMenuSourceData='{{data2}}' dropDownMenuFilterData='{{data4}}' onSelectedItem='SelectedItem' />
+            </view>
+            <view class="product-count" style="width:100%;position:fixed;top:{{topNum3}}%;z-index:41;background-color:#f5f5f5;">商品数量：{{productTotal2}}</view>
+            <view a:for="{{productList2}}" a:for-index="idx" a:for-item="itemSell" a:key="{{item.value}}" class="item-mrg">
+              <view class="item-content">
+                <view class="item-content-header">
+                  <text>产品分组：{{itemSell.group_name}}</text>
+                  <text style="float:right;">{{itemSell.add_time}}</text>
+                </view>
+                <image src="{{itemSell.image.url==''?itemSell.image.original:itemSell.image.url}}" class="item-content-img" mode="scaleToFill"></image>
+                <view class="item-content-right">
+                  <view class="item-content-title">{{itemSell.subject}}</view>
+                  <view class="item-content-productid">ID:{{itemSell.alibaba_product_id}}</view>
+                  <view class="item-content-property">
+                          {{itemSell.product_type=='wholesale'?'直接下单品':itemSell.product_type=='sourcing'?'非直接下单品':'未选择类型'}}
+                    <!--|
+                          {{itemSell.data3id==1?'实力优品':itemSell.data3id==2?'普通商品':itemSell.data3id==3?'低质商品':'未选择分层'}}-->
+                  </view>
+                  <!--<view class="item-content-downimg"><image mode="widthFix" class="item-downing-size" src="{{itemSell.isShow==true?default:img}}" data-index="{{idx}}" onTap="showToggle"/></view> -->
+                </view>
+              </view>
+              <view class="item-content-footer" hidden="{{itemSell.isShow}}">
+                <view class="item-footer-fun">
+                  <view class="item-footer-fun-sty" data-index="{{idx}}" onTap="offShop">
+                    <image mode="widthFix" class="item-footer-img" src="/image/xiajia.png"/>
+                    <view class="item-footer-align">下架</view>
+                  </view>
+                </view>
+                <view class="item-footer-fun">
+                  <view class="item-footer-fun-sty" data-index="{{idx}}" onTap="delShop">
+                    <image mode="widthFix" class="item-footer-img" src="/image/shanchu.png"/>
+                    <view class="item-footer-align">删除</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class="item-footer-onload" hidden="{{onShowLoading}}">{{productList2.length < productTotal2?'上滑加载更多':'没有更多商品了'}}</view>
+          </view>
+          <view a:if="{{item.title=='草稿箱'&&activeTab==2}}">
+            <view style="width:100%;position:fixed;top:{{topNum2}}%;z-index:80;">
+              <dropdownmenu dropDownMenuTitle='{{dropDownMenuTitle}}' dropDownMenuSourceData='{{data2}}' dropDownMenuFilterData='{{data4}}' onSelectedItem='SelectedItem' />
+            </view>
+            <view class="product-count" style="width:100%;position:fixed;top:{{topNum3}}%;z-index:41;background-color:#f5f5f5;">商品数量：{{productTotal3}}</view>
+            <view a:for="{{productList3}}" a:for-index="idx" a:for-item="itemSell" a:key="{{item.value}}" class="item-mrg">
+              <view class="item-content">
+                <view class="item-content-header">
+                  <text>产品分组：{{itemSell.group_name}}</text>
+                  <text style="float:right;">{{itemSell.add_time}}</text>
+                </view>
+                <image src="{{itemSell.image.url==''?itemSell.image.original:itemSell.image.url}}" class="item-content-img" mode="scaleToFill"></image>
+                <view class="item-content-right">
+                  <view class="item-content-right-1" data-status={{itemSell.status}} data-id={{itemSell.pid}} onTap="">
+                    <view class="item-content-title">{{itemSell.subject}}</view>
+                    <view class="item-content-productid">{{itemSell.alibaba_product_id==''?'待发布':itemSell.alibaba_product_id}}</view>
+                    <view class="item-content-property">
+                  {{itemSell.product_type=='wholesale'?'直接下单品':itemSell.product_type=='sourcing'?'非直接下单品':'未选择类型'}}
+                    </view>
+                  </view>
+                  <view class="item-content-downimg">
+                    <image mode="widthFix" class="item-downing-size" src="{{itemSell.isShow==true?default:img}}" data-index="{{idx}}" onTap="showToggle"/>
+                  </view>
+                </view>
+              </view>
+              <view class="item-content-footer" hidden="{{itemSell.isShow}}">
+                <view class="item-footer-fun">
+                  <view class="item-footer-fun-sty" data-index="{{idx}}" onTap="nextStep">
+                    <image mode="widthFix" class="item-footer-img" src="/image/fabu.png"/>
+                    <view class="item-footer-align">发布</view>
+                  </view>
+                </view>
+                <view class="item-footer-fun">
+                  <view class="item-footer-fun-sty" data-index="{{idx}}" onTap="delShop">
+                    <image mode="widthFix" class="item-footer-img" src="/image/shanchu.png"/>
+                    <view class="item-footer-align">删除</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class="item-footer-onload" hidden="{{onShowLoading}}">{{productList3.length < productTotal3?'上滑加载更多':'没有更多商品了'}}</view>
+          </view>
+          <view a:if="{{item.title=='发布失败'&&activeTab==3}}">
+            <view style="width:100%;position:fixed;top:{{topNum2}}%;z-index:80;">
+              <dropdownmenu dropDownMenuTitle='{{dropDownMenuTitle}}' dropDownMenuSourceData='{{data2}}' dropDownMenuFilterData='{{data4}}' onSelectedItem='SelectedItem' />
+            </view>
+            <view class="product-count" style="width:100%;position:fixed;top:{{topNum3}}%;z-index:41;background-color:#f5f5f5;">商品数量：{{productTotal4}}</view>
+            <view a:for="{{productList4}}" a:for-index="idx" a:for-item="itemSell" a:key="{{item.value}}" class="item-mrg">
+              <view class="item-content">
+                <view class="item-content-header">
+                  <text>产品分组：{{itemSell.group_name}}</text>
+                  <view a:for="{{itemSell.error}}" style="display:inline-block;float:right;">
+                    <text style="font-size:24rpx;">{{item.add_time}}</text>
+                  </view>
+                </view>
+                <view a:for="{{itemSell.error}}" style="width:100%;display:flex;height:32rpx;position: relative">
+                  <!--<text style="font-size:24rpx;color:red;margin:0 auto;">{{item.sub_msg}}</text> -->
+                  <text style="color:rgb(16, 142, 233);font-size:28rpx;position: absolute;right: 0rpx;top: 12rpx;" data-error={{item.sub_msg}} onTap="showErrorInfo">查看错误日志</text>
+                </view>
+                <image src="{{itemSell.image.url==''?itemSell.image.original:itemSell.image.url}}" class="item-content-img" mode="scaleToFill"></image>
+                <view class="item-content-right">
+                  <view class="item-content-right-1" data-status={{itemSell.status}} data-id={{itemSell.pid}} data-error={{itemSell.error[0].sub_msg}} onTap="">
+                    <view class="item-content-title">{{itemSell.subject}}</view>
+                    <view class="item-content-productid">{{itemSell.alibaba_product_id==''?'待发布':itemSell.alibaba_product_id}}</view>
+                    <view class="item-content-property">
+                      {{itemSell.product_type=='wholesale'?'直接下单品':itemSell.product_type=='sourcing'?'非直接下单品':'未选择类型'}}
+                    </view>
+                  </view>
+                  <view class="item-content-downimg">
+                    <image mode="widthFix" class="item-downing-size" src="{{itemSell.isShow==true?default:img}}" data-index="{{idx}}" onTap="showToggle"/>
+                  </view>
+                </view>
+              </view>
+              <view class="item-content-footer" hidden="{{itemSell.isShow}}">
+                <view class="item-footer-fun">
+                  <view class="item-footer-fun-sty" data-index="{{idx}}" onTap="nextStep">
+                    <image mode="widthFix" class="item-footer-img" src="/image/fabu.png"/>
+                    <view class="item-footer-align">发布</view>
+                  </view>
+                </view>
+                <view class="item-footer-fun">
+                  <view class="item-footer-fun-sty" data-index="{{idx}}" onTap="delShop">
+                    <image mode="widthFix" class="item-footer-img" src="/image/shanchu.png"/>
+                    <view class="item-footer-align">删除</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class="item-footer-onload" hidden="{{onShowLoading}}">{{productList4.length < productTotal4?'上滑查看更多商品':'已加载完所有商品'}}</view>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+    <view style="position: fixed;bottom: 270rpx;right: 0rpx;z-index: 80;">
+      <popover position="{{position}}" show="{{show}}" showMask="{{showMask}}" onMaskClick="onMaskClick">
+        <view class="demo-popover-btn" onTap="onShowPopoverTap">{{show ? '隐藏' : '拍照发品'}}
+          <image mode="widthFix" style="width:24rpx;margin-bottom:-2rpx;margin-left:16rpx;" src="../../image/arrow-right-w.png"/></view>
+        <view slot="items">
+          <popover-item>
+            <text>请点击下方创建发布模板</text>
+          </popover-item>
+        </view>
+      </popover>
+    </view>
+  </view>
+</view>

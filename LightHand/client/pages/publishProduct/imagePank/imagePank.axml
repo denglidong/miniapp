@@ -1,0 +1,32 @@
+<view style="width:100%;display:flex;position:fixed;top:0;height:10%;z-index:99;background-color:#fff;">
+  <view class="nav-title-me">
+    图片银行
+  </view>
+</view>
+<view style="width: 686rpx;margin:0 auto;display:flex;flex-wrap:wrap;justify-content: space-between">
+  <view class="imgGrouptop">
+    <view style="margin-left:30rpx;margin-top:212rpx;color:#fff;">
+      未分组
+    </view>
+    <view style="margin-left:30rpx;color:#fff;">
+      {{imageNoGroup.length}}
+    </view>
+  </view>
+  <view a:for="{{imagePankGroup}}" a:for-index = "idx" style = "overflow:hidden;">
+    <view class="{{item.group_id==undefined?'imgGrouptop':'imageGroup'}}" style="display:flex;flex-wrap:wrap;" data-index = {{idx}} onTap="activeShowSub">
+      <view style="margin-left:30rpx;margin-top:294rpx;color:#fff;" hidden="{{item.activeSub}}">
+          {{item.group_title}}
+      </view>
+      <view style="margin-left:30rpx;color:#fff;">
+          {{length}}
+      </view>
+    </view>
+    <view style = "margin-top:-400rpx; height: 360rpx;overflow: scroll;border-radius: 16px;  margin-bottom: 40rpx;" data-index = {{idx}} hidden="{{!item.activeSub}}" onTap="activeShowSub">
+      <view a:for="{{item.subGroupList}}" class="imageSubGroup">
+        <view data-key={{item.key}} data-title={{item.title}} data-index={{index}} onTap="getImagePank" hidden="{{item.subGroupList==0?true:false}}">
+          {{item.title}}
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

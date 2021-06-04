@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "发布模板",
+  "usingComponents":{
+    "search-bar": "mini-antui/es/search-bar/index",
+     "modal": "mini-antui/es/modal/index"  
+  }
+}

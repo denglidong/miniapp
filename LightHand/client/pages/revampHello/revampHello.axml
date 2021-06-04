@@ -1,0 +1,51 @@
+<view style="margin-top: 200rpx">
+<view style="position: fixed;width: 100%;height: 120rpx;background-color: #fff;z-index: 999;top: -1px;"></view>
+  <view class="mianbaoxie" style="display: {{display}};">
+    <text style="display: 'inline-block'" a:for="{{value}}">
+      <text onTap="toSort" data-index="{{index}}">{{item}}</text>
+      <text style="display: {{value.length >3 && index === 3 ? 'none' : 'inline-block'}}">></text>
+    </text>
+  </view>
+  <!-- 1开始 -->
+  <view style="display: {{sort === 1 ? 'block' : 'none'}}">
+    <list style="">
+      <view a:for={{items1}} style="margin: 20rpx;">
+        <list-item className="classification" arrow={{item.leaf == 1? false: true}}  onClick="onItemClick1" data-leaf={{item.leaf}}  index={{index}} data-id_path_first={{item.id}} data-id_path_i_first={{item.id_path}}>
+       {{item.zh_name}}
+        </list-item>
+      </view>
+    </list>
+  </view>
+  <!-- 1结束 -->
+  <!-- 2开始 -->
+  <view style="display: {{sort === 2 ? 'block' : 'none'}}">
+    <list>
+      <view a:for="{{items2}}" style="margin: 20rpx;">
+        <list-item className="classification"  arrow={{item.leaf == 1? false: true}}  onClick="onItemClick2" data-leaf={{item.leaf}} index="{{index}}" key="{{index}}" data-id_path_second={{item.id}} data-id_path_i_second={{item.id_path}}>
+       {{item.zh_name}}
+        </list-item>
+      </view>
+    </list>
+  </view>
+  <!-- 2结束 -->
+  <!-- 3开始 -->
+  <view style="display: {{sort === 3 ? 'block' : 'none'}}">
+    <list>
+      <view a:for="{{items3}}" style="margin: 20rpx;">
+        <list-item className="classification" arrow={{item.leaf == 1? false: true}}  onClick="onItemClick3" data-leaf={{item.leaf}}  index="{{index}}" key="{{index}}" data-id_path_third={{item.id}} data-id_path_i_third={{item.id_path}}>
+       {{item.zh_name}}
+        </list-item>
+      </view>
+    </list>
+  </view>
+  <!-- 3结束 -->
+  <view style="display: {{sort === 4 ? 'block' : 'none'}}">
+    <list>
+      <view a:for="{{items4}}" data-array="{{value}}" style="margin: 20rpx;">
+        <list-item  className="classification"  arrow={{item.leaf == 1? false: true}} onClick="onItemClick4" data-leaf={{item.leaf}} index="{{index}}" key="{{index}}" data-id_path_four={{item.id}} data-id_path_i_four={{item.id_path}}> 
+       {{item.zh_name}}
+        </list-item>
+      </view>
+    </list>
+  </view>
+</view>

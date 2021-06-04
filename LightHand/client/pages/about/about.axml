@@ -1,0 +1,16 @@
+<view style="margin-top: {{marginTop}}rpx;">
+  <view class="user-info">
+    <image mode="widthFix" class="user-image" src="{{avatar}}"/>
+    <text class="user-name">{{sellerName}}</text>
+  </view>
+  <list>
+    <!--<list-item arrow="{{true}}" onClick="commonInfoSetting">通用信息设置</list-item>-->
+    <list-item arrow="{{true}}" onClick="contactUs">联系客服</list-item>
+    <!--<list-item arrow="{{true}}" onClick="useCourse">使用教程</list-item> -->
+    <list-item arrow="{{false}}" onClick="jumpPC">
+      <view style="color:#108ee9;">
+        免费试用闪电手PC端
+      </view>
+    </list-item>
+  </list>
+</view>

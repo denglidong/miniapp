@@ -1,0 +1,100 @@
+<view style="background-color: #fff;">
+  <navigator open-type="redirect" url="../optimization" style="left: 16px;margin-left:20px;height: 21px;color: rgba(102, 102, 102, 100);background-color: #fff;font-size: 14px;text-align: left;font-family: PingFangSC-regular; ">退出</navigator>
+</view>
+<view>
+  <view>
+    <search-bar value="{{value}}" placeholder="商品英文名称" onInput="handleInput" showCancelButton="{{false}}" />
+  </view>
+  <view>
+    <tabs
+      tabs="{{tabs}}"
+      showPlus="{{false}}"
+      onTabClick="handleTabClick"
+      onChange="handleTabChange"
+      activeTab="{{activeTab}}"
+      swipeable="{{true}}">
+      <block a:for="{{tabs}}">
+        <tab-content key="{{index}}" >
+          <view class="tab-content">
+        
+        </tab-content>
+
+      </block>
+    </tabs>
+  </view>
+</view>
+<view>
+    <!-- 诊断中页面 -->
+            <view a:if="{{activeTab==0}}">
+              <view a:for="{{list}}" a:for-index="idx" a:for-item="itemSell" a:key="{{item.value}}" style="width: 351px;">
+                <view class="body" style="margin-top:20px;">
+                <view class="body-head" style="text-align:left; display:flex;" ><text style="margin-left:12px;width: 280px;height: 14px;color: rgba(102, 102, 102, 100);font-size: 12px;text-align: left;font-family: PingFangSC-regular;margin-top:15px;">产品分组：{{itemSell.group}}</text>
+                <text style="width: 32px;height: 12px;color: rgba(153, 153, 153, 100);font-size: 10px;text-align: left;font-family: PingFangSC-regular;margin-top:16px;">{{itemSell.time}}</text>
+                <view class="image2"  data-index="{{idx}}" onTap="select"  >
+                  <image style="width:20px;height:20px;"mode="scaleToFill" src="{{itemSell.checked==false?'../../image/shaixuan.png':'../../image/shaixuan-a.png'}}"></image>
+                </view>
+                </view>
+                <!-- 分割线 -->
+                <view class="body_divder" style="border: 1px solid rgba(232, 236, 240, 100);width: 351px;"></view>
+                <!-- body-bottom -->
+                
+                <view class="body-bottom">
+                  <!-- body-bottom-left -->
+                  <view class="body-bottom-left"><image mode="scaleToFill" src="{{itemSell.image}}"/ style="margin-top:12px;;width:90px;height:90px;margin-left:12px;"></view>
+                <!-- body-bottom-right -->
+                    <view class="body-bottom-right" style="width:237px;">
+                      <view style="margin-top:5px;width: 202px;height: 16px;color: rgba(102, 102, 102, 100);font-size: 12px;text-align: left;font-family: PingFangSC-regular;">{{itemSell.title}}</view>
+                      <view style="width:180px;height:16px;text-align:left;margin-top:10px;">
+                      <text style="height: 16px;width:90px;color: rgba(102, 102, 102, 100);font-size: 12px;text-align:left;font-family: PingFangSC-regular;">ID:{{itemSell.id}}</text>
+                        <view style="width: 36px;font-size: 12px;height: 16px;color:red;margin-left:170px;margin-top:-18px;"  onTap="zhenDuan">诊断中</view>
+                      </view>
+                      <view style="width: 202px;height: 16px;color: rgba(102, 102, 102, 100);margin-top:10px;font-size: 12px;text-align: left;font-family: PingFangSC-regular;">{{itemSell.state}}</view>
+                  </view>
+                </view>
+
+                  </view>
+
+                  
+              </view>
+            </view>
+            <!-- 诊断完成页面 -->
+            <view date-index="1" onTap="changstyle" a:if="{{activeTab==1}}">
+                <view   class="ZDF">
+                  <view a:for="{{FNlist}}" a:for-index="idx" a:for-item="itemSell" a:key="{{item.value}}" style="width: 351px;">
+                    <view class="body" style="margin-top:20px;">
+                <view class="body-head" style="text-align:left; display:flex;" ><text style="margin-left:12px;width: 280px;height: 14px;color: rgba(102, 102, 102, 100);font-size: 12px;text-align: left;font-family: PingFangSC-regular;margin-top:15px;">产品分组：{{itemSell.group}}</text>
+                <text style="width: 32px;height: 12px;color: rgba(153, 153, 153, 100);font-size: 10px;text-align: left;font-family: PingFangSC-regular;margin-top:16px;">{{itemSell.time}}</text>
+                <view class="image2"  data-index="{{idx}}" onTap="select"  >
+                  <image style="width:20px;height:20px;"mode="scaleToFill" src="{{itemSell.checked==false?'../../image/shaixuan.png':'../../image/shaixuan-a.png'}}"></image>
+                </view>
+                </view>
+                <!-- 分割线 -->
+                <view class="body_divder" style="border: 1px solid rgba(232, 236, 240, 100);width: 351px;"></view>
+                <!-- body-bottom -->
+                
+                <view class="body-bottom">
+                  <!-- body-bottom-left -->
+                  <view class="body-bottom-left"><image mode="scaleToFill" src="{{itemSell.image}}"/ style="margin-top:12px;;width:90px;height:90px;margin-left:12px;"></view>
+                <!-- body-bottom-right -->
+                    <view class="body-bottom-right" style="width:237px;">
+                      <view style="margin-top:5px;width: 202px;height: 16px;color: rgba(102, 102, 102, 100);font-size: 12px;text-align: left;font-family: PingFangSC-regular;">{{itemSell.title}}</view>
+                      <view style="width:180px;height:16px;text-align:left;margin-top:10px;">
+                      <text style="height: 16px;width:90px;color: rgba(102, 102, 102, 100);font-size: 12px;text-align:left;font-family: PingFangSC-regular;">ID:{{itemSell.id}}</text>
+                       <navigator open-type="redirect" url="../xiufu/advice/advice" style="width: 48px;font-size:12px;height: 16px;color:red;margin-left:170px;margin-top:-18px;">查看结果</navigator>
+                      </view>
+                      <view style="width: 202px;height: 16px;color: rgba(102, 102, 102, 100);margin-top:10px;font-size: 12px;text-align: left;font-family: PingFangSC-regular;">{{itemSell.state}}</view>
+                  </view>
+                </view>
+                      
+                  </view>
+              </view>
+                 
+            </view>
+          
+              </view>
+            </view>
+          </view>
+</view>
+<view>
+   <navigator open-type="redirect" url="../xiufu/advice/advice" hover-class="navigator-hover"style="margin-left:60%;margin-top:-30rpx; color:red;width:200rpx;font-size:12px;">查看诊断结果</navigator>
+      </view>

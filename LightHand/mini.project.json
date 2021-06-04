@@ -1,0 +1,9 @@
+{
+    "cloud": {
+        "type": "tb-serverless"
+    },
+    "exclude": [
+        "server/**"
+    ],
+    "component2": true
+}

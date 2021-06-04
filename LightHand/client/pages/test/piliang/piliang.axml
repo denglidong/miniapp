@@ -1,0 +1,104 @@
+<view>
+  <view>
+    <search-bar value="{{value}}" placeholder="商品英文名称" onInput="handleInput" showCancelButton="{{false}}" />
+  </view>
+  <view>
+    <tabs
+      tabs="{{tabs}}"
+      showPlus="{{false}}"
+      onTabClick="handleTabClick"
+      onChange="handleTabChange"
+      activeTab="{{activeTab}}"
+      swipeable="{{true}}">
+      <block a:for="{{tabs}}">
+        <tab-content key="{{index}}" >
+          <view class="tab-content">
+          <!-- 诊断中页面 -->
+            <!-- <view a:if="{{activeTab==0}}">
+            
+              <view a:for="{{list}}" a:for-index="idx" a:for-item="itemSell" a:key="{{item.value}}" style="width:600rpx;margin:0 auto;margin-top:30rpx;box-shadow:1rpx 1rpx 2px 2px rgba(0,0,0,0.6);border-radius:10rpx;">
+                  <image src="{{itemSell.image}}" style="border-radius:10rpx;width:200rpx;" mode="widthFix"></image>
+                  <view style="margin-top:-160rpx;margin-left:210rpx;"> 
+                  <view>{{itemSell.title}}</view>
+                  <view>ID:{{itemSell.id}}</view>
+                  <view>{{itemSell.state}}</view>
+                  <view>产品分组:{{itemSell.group}}</view>
+                  </view>
+              
+                  <view style="">
+                  产品分组：<text>{{fenzu}}</text>
+                 </view>
+              </view>
+            </view>
+            <!-- 诊断完成页面 -->
+            <!-- <view date-index="1" onTap="changstyle" a:if="{{activeTab==1}}">
+                <view   class="ZDF">
+                  <view a:for="{{FNlist}}" a:for-index="idx" a:for-item="itemSell" a:key="{{item.value}}" style="width:600rpx;margin:0 auto;margin-top:30rpx;box-shadow:1rpx 1rpx 2px 2px rgba(0,0,0,0.6);border-radius:10rpx;">
+                      <image src="{{itemSell.image}}" style="border-radius:10rpx;width:200rpx;" mode="widthFix"></image>
+                      <view style="margin-top:-140rpx;margin-left:210rpx;"> 
+                      <view>{{itemSell.title}}</view>
+                      <view>ID:{{itemSell.id}}</view>
+                      <view>{{itemSell.state}}</view>
+                      <view>产品分组:{{itemSell.group}} 
+                      <view>
+                          <navigator open-type="redirect" url="../xiufu/advice/advice" hover-class="navigator-hover"style="margin-left:60%;margin-top:-30rpx; color:red;width:200rpx;font-size:12px;">查看诊断结果</navigator>
+                      </view>
+                  </view>
+              </view> -->
+                 
+            <!-- </view> -->
+          
+              </view>
+            </view>
+          </view>
+        <!-- </tab-content> -->
+
+      </block>
+
+
+<view a:for="{{list}}" a:for-index="idx" a:for-item="itemSell" a:key="{{item.value}}" style="width:600rpx;margin:0 auto;margin-top:30rpx;">
+      <view class="youhua_bottom" >
+      <!-- 分组：获取分组，获取时间，勾选图片，添加点击事件，变色 -->
+      <text style="margin-left:-0px;position:relative;">产品分组:{{itemSell.group}}</text> <text style="font-size:12px;margin-left:55px;">{{itemSell.time}}</text>
+       <block a:if="{{isCollect == false}}"> <image class='timeinfo1' style="width:30px;height:30px;margin-left:265px;margin-top:-30px;" src="../../../image/gouxuan.png"  mode='aspectFit'></image></block>
+      <block a:elif="{{isCollect == true}}" > <image class='timeinfo1' style="width:30px;height:30px;margin-left:265px;margin-top:-30px;" src="../../../image/gouxuan-a.png"  mode='aspectFit'></image></block>
+       <!-- 分割线 -->
+        <view class="youhua_divder" ></view>
+     <!-- 产品内容 -->
+        <view class="products-biankuang">
+        <!-- 预留空格 -->
+            <view style="height:10px;"></view>
+            <view class="products-zhuti" style="margin:0px 10px 10px 10px;" >
+            <!-- 产品图片  左边-->
+            <view class="products-image" style="">
+              <image  class="products-images" style="margin-top:0px;" src="{{itemSell.image}}"/>
+            </view>
+              <!-- 产品名称  右边-->
+              <view style="margin-left:110px; float:left;">
+                  <view style="margin-top:-120px;">
+                    {{itemSell.title}}
+                  </view>
+              <!-- 产品ID  加诊断按钮 -->
+              <view>
+                <text>ID:{{itemSell.id}}</text>  
+              </view>
+              <!-- 产品类型 -->
+              <view>
+                直接下单品-RTS
+              </view>
+              </view>
+            
+          </view>
+            </view>
+
+          
+        </view>
+
+        
+  
+
+
+      </view>
+    </tabs>
+  </view>
+</view>

@@ -1,0 +1,85 @@
+<view style="width:100%;display:flex;position:fixed;top:0;height:10%;z-index:99;background-color:#fff;">
+  <view class="nav-title-me">
+产品优化
+  </view>
+</view>
+<view>
+  <view style="width:100%;height:25%;position:fixed;top:0;z-index:40;background-color:#fff;"></view>
+  <view>
+    <view style="width:100%;position:fixed;top:10%;z-index:99;">
+      <search-bar value="{{inputValue}}" placeholder="商品英文名称" onInput="handleInput" onSubmit="search" showCancelButton="{{false}}" />
+    </view>
+    <view>
+    <view  style="width:100%;position:fixed;top:17%;z-index:99;">
+            <tabs tabs="{{tabs}}" showPlus="{{false}}" onTabClick="handleTabClick" onChange="handleTabChange" activeTab="{{activeTab}}" swipeable="{{true}}">
+    </view>
+        <block a:for="{{tabs}}">
+          <tab-content key="{{index}}">
+            <view class="tab-content">
+              <list>
+                </view>
+                </view>
+                <view a:if="{{activeTab==0}}">
+                <view style="width:100%;position:fixed;top:24%;z-index:99;">
+                  <dropdownmenu dropDownMenuTitle='{{dropDownMenuTitle}}' dropDownMenuSourceData='{{data2}}' dropDownMenuStyleData='{{data3}}' dropDownMenuFilterData='{{data4}}' onSelectedItem='SelectedItem' />
+                </view>
+                  <view slot="header">
+                    <view style=" justify-content: center;align-items: center;">
+                    </view>
+                    <text class="text" style="width:351px;">
+                      <view style="margin-top:10px;margin-left:280px;color:red;height:28px;font-size:28rpx;" class="hide{{showView?'show':''}}" onTap="onChangeShowState">{{showView?'批量诊断':'取消'}}</view>
+                      <view style="margin-top:10px;margin-left:280px;font-size:12px;height:28px;font-size:28rpx;" class="hide{{showView?'':'show'}}" onTap="onChangeShowState"onTouchEnd="selectAny">{{showView?'批量诊断':'取消'}}</view>
+                      <view class="hide{{showView?'':'show'}}" style="margin-top: -21px;">
+                        <text style="margin-left:20px;margin-top:-10px;font-size:14px;">当前已选择:</text>
+                        <text >{{number}}条</text>
+                        <view open-type="redirect" url="xiufu2/xiufu2" style="margin-left:155px;color:red; width:30px;margin-top:-22px;font-size: 14px;"onTap="queding">确定</view>
+                        <view class="{{selectilall==true?'quanxuan':'NOquanxuan'}}" onTouchEnd="selectAll">全选</view>
+                        </text>
+                      </view>
+                      </view>
+                      <view a:for="{{productList}}" a:for-index="idx" a:for-item="itemSell" a:key="{{item.value}}" style="">
+                        <view class="body" style="margin-top:20px;">
+                          <view class="body-head" style="text-align:left; display:flex;">
+                            <text style="margin-left:12px;width: 200px;height: 14px;color: rgba(102, 102, 102, 100);font-size: 12px;text-align: left;font-family: PingFangSC-regular;margin-top:15px;">产品分组：{{itemSell.group_id==''?'未定义':itemSell.group_id}}</text>
+                            <text style="width: 108px;height: 12px;color: rgba(153, 153, 153, 100);font-size: 10px;text-align: left;font-family: PingFangSC-regular;margin-top:16px;">{{itemSell.add_time}}</text>
+                            <view class="image2" data-index="{{idx}}" onTap="select1">
+                              <image style="width:20px;height:20px;margin-left:7px;"mode="scaleToFill" class="hide{{showView?'':'show'}}" src="{{itemSell.checked==false?'../../image/shaixuan.png':'../../image/shaixuan-a.png'}}"></image>
+                            </view>
+                          </view>
+                          <view class="body-bottom">
+                            <!-- body-bottom-left -->
+                            <view class="body-bottom-left">
+                              <image mode="scaleToFill" src="{{itemSell.image.url}}" style="margin-top:12px;;width:90px;height:90px;margin-left:12px;"></view>
+                                <!-- body-bottom-right -->
+                                <view class="body-bottom-right" style="width:474rpx;">
+                                  <text style="margin-top:10rpx;width: 404rpx;height: 32rpx;color: rgba(102, 102, 102, 100);font-size: 12px;text-align: left;font-family: PingFangSC-regular;display: -webkit-box;-webkit-line-clamp: 1;overflow: hidden; text-overflow:ellipsis;">{{itemSell.subject}}</text>
+                                  <view style="width:380rpx;height:32rpx;text-align:left;margin-top:32rpx;">
+                                    <text style="height: 32rpx;width:180rpx;color: rgba(102, 102, 102, 1);font-size: 12px;text-align:left;font-family: PingFangSC-regular;">ID:{{itemSell.alibaba_product_id}}</text>
+                                    <view style="width: 56rpx;height: 16px;color:red;margin-left:125px;margin-top:-18px;font-size:13px;" data-arry={{itemSell}} data-alibaba_product_id={{itemSell.alibaba_product_id}} data-category_id={{itemSell.category_id}} onTap="ZhenDuan">诊断</view>
+                                  </view>
+                                  <view style="width: 404rpx;height: 32rpx;color: rgba(102, 102, 102, 1);margin-top:16px;font-size: 12px;text-align: left;font-family: PingFangSC-regular;">{{itemSell.product_type==''?'未定义分组':itemSell.product_type=='wholesale'?'直接下单品-非RTS':itemSell.product_type=='sourcing'?'非直接下单品':'未选择类型'}}|{{itemSell.boutique_tag==1?'精品':itemSell.boutique_tag==2?'普通商品':itemSell.data3id==3?'低质商品':itemSell.boutique_tag==4?'实力优品':'未选择分层'}}</view>
+                                  <!--<view style="width:60rpx;height:60rpx;margin-left:185px;margin-top:-38px;"data-index="{{idx}}"onTap="showToggle"><image style="width:30px;height:30px;" mode="scaleToFill" src="{{itemSell.isShow==true?'../../image/arrow-right.png':'../../image/arrow-down.png'}}"/></view> -->
+                                  <view class="item-content-downimg">
+                                    <image mode="widthFix" class="item-downing-size" src="{{itemSell.isShow==true?default:img}}" data-index="{{idx}}" onTap="showToggle"/>
+                                  </view>
+                                </view>
+                                </view>
+                                <!-- 隐藏部分 -->
+                                </view>
+                                <view style="width:702rpx;height:98rpx;margin:0 auto;background-color:rgba(255,255,255,0.4);border-radius:0 0 8rpx 8rpx;display:flex;flex-wrap;" hidden="{{itemSell.isShow}}">
+                                  <view style="width:351rpx;display:flex;">
+                                    <view style="width:48rpx;margin:0 auto;align-self:flex-end;">
+                                      <image mode="widthFix" style="width:48rpx;opacity: 0.6;" src="../../image/xiajia.png"/>
+                                      <view style="text-align:center;opacity: 0.6;font-size:12px;">下架</view>
+                                    </view>
+                                  </view>
+                                  <view style="width:351rpx;display:flex;">
+                                    <view style="width:48rpx;margin:0 auto;align-self:flex-end;">
+                                      <image mode="widthFix" style="width:48rpx;opacity: 0.6" src="../../image/shanchu.png"/>
+                                      <view style="text-align:center;opacity: 0.6;font-size:12px;">删除</view>
+                                    </view>
+                                  </view>
+                                </view>
+                                </view>
+                                </view>
+                                </view>

@@ -1,0 +1,123 @@
+<view>
+  <!-- 提交按钮 -->
+  <view style="overflow: hidden;">
+ 
+  <view style="display:flex;">
+      <!-- <navigator open-type="switchTab" url="../../optimization" hover-class="navigator-hover" style="margin-left:16px;width:28px;height:21px;font-size:14px;">退出</navigator>
+      <navigator open-type="navigate" url="../advice2/advice2" hover-class="navigator-hover" style="margin-left:250px;width:28px;height:21px;font-size:14px; color:blue;">应用</navigator> -->
+      
+      <!-- 退出+二次提醒按钮 -->
+      <!-- <view><text onTap="showWindows1"  style="font-size:14px;margin-left:40rpx;">退出</text></view> -->
+      
+   </view>
+
+    <view class="youhu_title">
+      <image mode="scaleToFill" style="width:17px;height:17px;margin-left:86rpx;margin-top:5px;"src="../../../../image/GanTanhao.png"/>
+      <text style="width:264px; height:17px;margin-left:5px;margin-top:-2px;">已将商品信息转换为模块化，红色部分为优化意见</text>
+    </view>
+    <view class="youhua_bottom">
+      <text style="margin-left:8px;font-size: 16px;">产品图片</text>
+      <text style="width:40px;height:20px;margin-left:300px;margin-top:-35px;">{{images.length}}/6</text>
+      <text style="font-size: 12px;width: 283px;height: 16px;text-align: left;">单个文件不能超过5MB,支持格式：.JPG.PNG.JPEG</text>
+      <view style="display:flex; width:680px;flex-wrap:wrap;margin-left:35px;">
+        <view a:for="{{images}}" a:key="id" a:for-item="item" class="image" style="width:180rpx;height:90px;display:flex;margin-top:0px;">
+          <image style="width:90px;height:90px;" mode="widthFix" src="{{item.url}}"/>
+        </view>
+      </view>
+      <!-- <view a:for="{{advice}}" >
+        <view a:for="{{list}}">
+         
+          <view style="width: 202px;height: 16px;color: rgba(102, 102, 102, 100);margin-top:10px;font-size: 12px;text-align: left;font-family: PingFangSC-regular;">{{item[i]==1?'精品':item[i]==2?'普通商品':item[i]==3?'低质商品':item[i]==4?'实力优品':'未选择分层'}}</view>  
+          </view>
+        </view> -->
+                <view a:for="{{Adv}}"a:for-index="idx" >
+       <view style="margin-left:50px;;color:red;font-size:12px;width:678rpx;height:20px;">{{item.value}}</view>
+      </view>
+      </view>
+
+  
+    </view>
+  </view>
+  <view style="margin-top:20px;width:702rpx;margin-left:24rpx;height:50rpx;margin-top:20px;">
+    <!-- 提示语 -->
+    <view style="width:240rpx;height:32rpx;margin-left:272rpx;font-size:12px; color:rgba(252, 40, 0, 100);font-weight:blod;">* 请完善以下内容</view>
+  </view>
+  
+  <form onSubmit="onSubmit" onReset="onReset">
+  <!-- 产品属性 -->
+  <view class="shuxing" hidden="{{array.length>0?false:true}}"  >
+    <view class="page-description">产品属性</view>
+    <view>
+      <view class="page-section" a:for="{{array}}"a:for-item="item"  >
+          <picker onChange="bindPickerChangeGongYi" data-attr="{{item}}" name="aid" data-index="{{index}}" range="{{item.subset}}" value="{{array[Index].id}}" range-key="zh_name">
+            <view class="xian row" hidden="{{item.input_type=='single_select'?false:true}}">
+              <view class="row-title"  >{{item.zh_name}}</view>
+              <view class="row-extra" >{{item.subset[arrayIndex].zh_name}}</view>
+              <view class="row-arrow">
+                          >
+              </view>
+            </view>
+          </picker>
+      </view>
+            <view class="page-section" a:for="{{array}}"a:for-item="item"  >
+               <view class="xian row"  style="backgroud-color:#ffff;" hidden="{{item.input_type=='input'?false:true}}">
+                  <view class="row-title"  >{{item.zh_name}}</view>
+                  <input placeholder="请输入内容" class="row-extra"/>  
+               </view>
+            </view>
+
+    </view>
+  </view>
+  <!-- 产品规格 -->
+  <view class="guige">
+    <view class="page-description">产品规格</view>
+    <view class="page-section" a:for="{{arrayGG}}" a:for-item="item">
+     <!-- <block a:if="{{item.value_id==4}}"> -->
+      <picker onChange="bindPickerChangeYanSe" data-attr="{{item}}"  name="liu" data-index="{{index}}" range="{{item.subset}}" value={{arrayIndexGG}} range-key="zh_name">
+        <view class="row"  >
+          <view class="row-title" >{{item.zh_name}}</view>
+          <view class="row-extra" >{{item.subset[arrayGGIndex].zh_name}}</view>
+          <view class="row-arrow">
+                  >
+          </view>
+        </view>
+      </picker>
+      </block>
+    </view>
+  </view>
+    <!-- 物流信息 -->
+    <view class="guige">
+      <view class="page-description">物流信息</view>
+        <view class="page-section">
+        <view class="form-line" />
+        <view class="form-row">
+          <!--包装方式 输入框 -->
+          <view class="form-row-content" style="width:702rpx;height:50rpx;display:flex;margin-left:-40px;">
+            <text style="width:60px;height:20px;color: rgba(102, 102, 102, 100);font-size:14px; vertical-align: center;line-height: 30px;margin-left:24px;">包装方式</text>
+            <input name="input" class="input" placeholder="请输入内容" style="margin-left:30px;font-size:12px;width:200px;height:20px;"/>
+          </view>
+        </view>
+        </view>
+        <!-- 提交按钮 -->
+        <view class="page-section-btns">
+          <!-- <view><button type="ghost" size="mini" formType="reset">Reset</button></view> -->
+          <!-- <view><button type="primary" size="mini" formType="submit" style="margin-left：240rpx;"> Submit</button></view> -->
+        </view>
+
+      </view>
+  </form>
+
+</view>
+
+
+</view>
+</view>
+</view>
+   <view style="display:flex;">
+      <!-- <navigator open-type="switchTab" url="../../optimization" hover-class="navigator-hover" style="margin-left:16px;width:28px;height:21px;font-size:14px;">退出</navigator>
+      <navigator open-type="navigate" url="../advice2/advice2" hover-class="navigator-hover" style="margin-left:250px;width:28px;height:21px;font-size:14px; color:blue;">应用</navigator> -->
+      <!-- <view><text onTap="showWindows1"  style="font-size:14px;margin-left:40rpx;">退出</text></view> -->
+      <view><button size="default" type="primary" onTap="showWindows2" style="margin-left:280rpx;margin-top:40rpx;width:180rpx">应用</button> 
+     <!-- <view> <text style="color:blue;font-size:14px;margin-left:350rpx;width:0px;height:30px">应用</text></view> -->
+   </view>
+</view>

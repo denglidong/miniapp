@@ -1,0 +1,43 @@
+<view class="head">
+  
+  <view>
+    <view  class = "wrap" >
+    <view  class = "circle-box" >
+     <canvas  class = "circle"  style = "width:161px; height:161px;"  canvas-id = "canvasArcCir" >
+     </canvas >
+     <canvas  class = "circle"  style = "width:149px; height:149px;background-color:white;margin-top: 35px;left: 113px;"  canvas-id = "canvasCircle" >
+     </canvas >
+     <view  class = "draw_btn"  bindtap = "drawCircle" >{{message3}}%</view >
+   </view >
+</view >
+  </view>
+
+  <view>
+    
+  </view >
+  </view>
+</view>
+  <view hidden="{{isHidden}}" style="width:204px;height:17px;margin-left:94px;opacity: 0.75;color: rgba(252, 40, 0, 100);font-size: 12px;text-align: left;margin-top:-30px;">第一条产品诊断完成 <text style="margin-left:20px;">{{message1}}%</text></view>
+  <view hidden="{{isShow}}" style="width:204px;height:17px;margin-left:94px;font-size: 12px;text-align: left;margin-top:10px;">第二条产品正在诊断中 <text style="margin-left:20px;">{{message2}}%</text></view>
+
+
+<view class="body" style="margin-top:20px;">
+<!-- 对号 -->
+<view  class="check-style-unequal-width" style="margin-left:20px;">
+  
+</view> 
+<text style="margin-left:44px;width: 112px;height: 20px;color: rgba(102, 102, 102, 100);font-size: 14px;text-align: left;font-family: PingFangSC-regular;">基本信息诊断完成</text><text style="margin-left:50px;">{{message1}}</text>
+  
+</view>
+
+<view class="bodyxia">
+<view  class="check-style-unequal-width"" style="opacity: 1; "></view>
+<text style="margin-left:44px;width: 112x;height: 20px;color: rgba(102, 102, 102, 100);font-size: 14px;text-align: left;font-family: PingFangSC-regular;">产品主图诊断完成</text><text style="margin-left:50px;">{{message2}}</text>
+  
+</view>
+
+<view >
+  <navigator  open-type="redirect" url="../zhenduan/zhenduan" hover-class="navigator-hover" hidden="{{isShow}}" style="">查看诊断结果</navigator>
+</view>
+
+

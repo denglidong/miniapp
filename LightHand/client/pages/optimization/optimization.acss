@@ -1,0 +1,94 @@
+page{
+padding-top:44%;
+padding-bottom: 4%;
+}
+.nav-title-me {
+margin: 0 auto;
+width: 192rpx;
+color: rgba(0, 0, 0, 1);
+font-size: 48rpx;
+font-family: PingFangSC-regular;
+margin-top: 60rpx;
+}
+
+.body{
+  width:351px; 
+  left: 12px;
+  height: 172px;
+  line-height: 20px;
+  border-radius: 4px;
+  color: rgba(16, 16, 16, 100);
+  font-size: 14px;
+  text-align: center;
+  font-family: Arial;
+  border: 1px solid rgba(255, 255, 255, 1);
+  position: relative;
+  background-color: #fff;
+}
+.body-head{
+  height: 45px;
+  position: relative;
+  border-bottom: solid #f7f7f7 1rpx;
+}
+.item-content-downimg{
+  position:absolute;
+  right:8rpx;
+  top:52rpx;
+}
+.item-downing-size{
+  margin-top:20rpx;
+  width:48rpx;
+  opacity: 0.6;
+}
+.body_divder{
+  position: relative;
+  height: 1px;
+}
+.body-bottom{
+  display: flex;
+  height: 126px;
+  position: relative;
+}
+.quanxuan{
+  width:50px;
+  height:30px;
+  margin-left:220px;
+  margin-top:-18px;
+  color: blue;
+  font-size: 14px;
+}
+.NOquanxuan{
+  width:50px;
+  height:30px;
+  margin-left:220px;
+  margin-top:-18px;
+  font-size: 14px;
+}
+
+
+.body-bottom-left{
+  height: 126px;
+  width: 102px;
+  position: relative;
+}
+.body-bottom-right{
+  margin-top: 12px;
+  margin-left: 114px;
+  width: 237px;
+  height: 94px;
+  position: absolute;
+}
+.image2{
+  width:22px;
+  height: 22px;
+}
+
+.hide{
+ display: none;
+}
+.show{ 
+ display: block;
+}
+
+
+
