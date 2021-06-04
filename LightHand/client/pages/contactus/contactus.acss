@@ -1,0 +1,35 @@
+.title-style{
+  width:100%;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 50rpx;
+}
+.service-time{
+  padding-top: 50rpx;
+  padding-left:50rpx;
+}
+.service-tel{
+  padding-top: 20rpx;
+  padding-left:50rpx;
+  padding-right: 50rpx;
+  display: flex;
+  flex-flow: row;
+}
+.service-phone{
+  width: 500rpx;
+}
+.call-phone{
+  color: green;
+  text-align: right;
+  width: 150rpx;
+}
+.code-2d{
+  text-align:center;
+  padding-top:20rpx;
+}
+.contact-dingding{
+  width:100%;
+  color: green;
+  text-align: center;
+  padding-top: 20rpx;
+}

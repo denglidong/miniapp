@@ -1,0 +1,14 @@
+{
+  "defaultTitle": "闪电手test",
+  "usingComponents": {
+    "search-bar": "mini-antui/es/search-bar/index",
+    "tabs": "mini-antui/es/tabs/index",
+    "tab-content": "mini-antui/es/tabs/tab-content/index",
+    "dropdownmenu": "/component/dropdownmenu/dropdownmenu",
+    "collapse": "mini-ali-ui/es/collapse/index",
+    "collapse-item": "mini-ali-ui/es/collapse/collapse-item/index",
+    "popover": "mini-antui/es/popover/index",
+    "popover-item": "mini-antui/es/popover/popover-item/index",
+    "mask": "mini-ali-ui/es/mask/index"
+  }
+}

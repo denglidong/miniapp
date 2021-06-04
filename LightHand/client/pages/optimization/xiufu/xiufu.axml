@@ -1,0 +1,44 @@
+<view class="head"style="margin-top:60rpx;">
+  
+  <view>
+  <view style="width:351px;height:80rpx;">
+    
+  </view>
+    <view  class = "wrap" >
+    <view  class = "circle-box"  >
+     <view  class = "circle"  style = "width:300rpx; height:300rpx;margin-left:225rpx;margin-top:60rpx;"></view >
+     <view  class = "circle1"  style = "width:280rpx; height:280rpx;background-color:white;margin-left: 235rpx;z-index:9;" >
+  
+     </view >
+      <view  class = "draw_btn"  style="z-index:10; margin-top: -184rpx;">{{message3}}%</view >
+   </view >
+</view >
+  </view>
+
+  <view>
+    
+  </view >
+  </view>
+</view>
+
+
+<view class="body">
+<!-- 对号 -->
+<view  class="check-style-unequal-width" style="margin-left:20px;">
+  
+</view> 
+<text style="margin-left:44px;width: 112px;height: 20px;color: rgba(102, 102, 102, 100);font-size: 14px;text-align: left;font-family: PingFangSC-regular;">基本信息诊断完成</text><text style="margin-left:50px;">{{message1}}%</text>
+  
+</view>
+
+<view class="bodyxia">
+<view  class="check-style-unequal-width" style="opacity: 1; "></view>
+<text style="margin-left:44px;width: 112x;height: 20px;color: rgba(102, 102, 102, 100);font-size: 14px;text-align: left;font-family: PingFangSC-regular;">产品主图诊断完成</text><text style="margin-left:50px;">{{message2}}%</text>
+  
+</view>
+
+<view >
+  <navigator  open-type="navigate" url="advice/advice" hover-class="navigator-hover" hidden="{{isShow}}">查看诊断结果</navigator>
+</view>
+
+

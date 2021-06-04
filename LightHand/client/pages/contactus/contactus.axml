@@ -1,0 +1,21 @@
+<view style="padding-top:{{titleHeight}}px;">
+  <view class="title-style">联系方式</view>
+  <view class="service-time">服务时间: 9:00 - 22:00</view>
+  <view class="service-tel">
+    <view class="service-phone">客服电话: 18149216331</view>
+    <view class="call-phone" onTap="onCallPhone">拨打电话</view>
+  </view>
+  <view class="service-tel">
+    <view class="service-phone">阿里卖家: cn1530226139bcmd</view>
+    <view class="call-phone" onTap="onCallAliSeller">点击联系</view>
+  </view>
+  <view class="title-style">闪电手工具交流群</view>
+  <view class="code-2d">
+    <image mode="widthFix" style="width:400rpx;height:400rpx;" onTap="onSaveDingCode" src="/image/contact_ding.png"/>
+  </view>
+  <view class="service-tel">
+    <view class="service-phone">钉钉群号: 32917988</view>
+    <view class="call-phone" onTap="onCopyDing">点击复制</view>
+  </view>
+  <!--<view class="contact-dingding">点击复制群链接后，用钉钉或浏览器打开</view> -->
+</view>

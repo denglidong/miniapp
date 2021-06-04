@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "am-checkbox": "mini-ali-ui/es/am-checkbox/index"
+  }
+}

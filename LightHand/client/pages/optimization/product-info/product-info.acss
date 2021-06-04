@@ -1,0 +1,153 @@
+.page {
+  padding: 0rpx 24rpx 0rpx 24rpx;
+  background: #fff;
+}
+
+/* 产品类型 */
+.leixing {
+  width: 702rpx;
+  height: 222rpx;
+  margin-top: 44rpx;
+  
+  background-color: rgba(246, 246, 246, 100);
+ border: 2rpx solid rgba(255, 255, 255, 100);
+ border-radius: 6px;
+
+}
+/* 产品属性 */
+.shuxing {
+  width: 700rpx;
+  height: 716rpx;
+  border-radius: 12rpx;
+  margin-top: 44rpx;
+ 
+  background-color: rgba(246, 246, 246, 100);
+  text-align: center;
+  border: 2rpx solid rgba(255, 255, 255, 100);
+
+  
+   overflow: hidden;
+}
+.page-description {
+  width: 678rpx;
+  height: 78rpx;
+  line-height: 78rpx;
+  overflow: hidden;
+
+  margin-left: 22rpx;
+  color: rgba(102, 102, 102, 100);
+  font-size: 32rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+   border-bottom: 2rpx solid rgba(187, 187, 187, 100);
+}
+.page-section {
+  margin: 34rpx 46rpx 34rpx 44rpx;
+}
+
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  /* border-top: 1px solid red; */
+  /* align-items: center; */
+  /* padding: 0 30rpx; */
+  
+}
+
+
+.row-title {
+  
+ width: 168rpx;
+ height: 40rpx;
+ color: rgba(102, 102, 102, 100);
+ font-size: 28rpx;
+ line-height: 40rpx;
+ text-align: left;
+ font-family: PingFangSC-regular;
+ margin: auto;
+}
+
+.row-extra {
+  width: 300rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin-left: 50rpx;
+ 
+  background-color: rgba(255, 0, 0, 0);
+ color: rgba(102, 102, 102, 100);
+  font-size: 28rpx;
+  text-align: left;
+  font-family: Arial;
+  
+ 
+}
+
+.row-arrow {
+ 
+  width: 60rpx;
+  height: 60rpx; 
+  text-align: center;
+  
+}
+/* 产品规格 */
+.guige {
+  width: 702rpx;
+  height: 222rpx;
+  margin-top: 44rpx;
+  background-color: rgba(246, 246, 246, 100);
+ border: 2rpx solid rgba(255, 255, 255, 100);
+ border-radius: 6px;
+
+}
+
+/* 交易信息 */
+.xinxi {
+  width: 702rpx;
+  height: 778rpx;
+   margin-top: 44rpx;
+  background-color: rgba(246, 246, 246, 100);
+ border: 2rpx solid rgba(255, 255, 255, 100);
+ border-radius: 6px;
+
+}
+/* 最小起订量 */
+.min {
+  width: 624rpx;
+  height: 352rpx;
+  background: #fff;
+  margin: auto;
+  overflow: hidden;
+}
+
+
+ input {
+       
+        border: 0;  
+        outline: none; 
+        
+ 
+    }
+
+
+ .placeholder-input{
+  color: rgba(51, 51, 51, 100);
+}
+
+
+.placeholder-yanse {
+  font-size: 12px;
+  color: rgba(51, 51, 51, 100);
+  background-color: rgba(246, 246, 246, 100);
+  padding: 0;
+}
+
+/* 物流信息 */
+.wuliu {
+  width: 702rpx;
+  height: 408rpx;
+  margin-bottom: 44rpx;
+  border-radius: 6px;
+  background-color: rgba(246, 246, 246, 100);
+  color: rgba(102, 102, 102, 100);
+}

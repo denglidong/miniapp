@@ -1,0 +1,42 @@
+<view class="nav">
+  <view class="nav-child borders {{source_open? 'active' : ''}}" onTap="tapSourceNav" hidden='{{dropDownMenuSourceData.length > 0 ? false : true}}' data-nav="1">
+    <view class="nav-title">{{selected_source_name.length > 2?selected_source_name : dropDownMenuTitle[1]}}</view>
+    <view class="icon"></view>
+  </view>
+  <view class="nav-child borders-right {{style_open? 'active' : ''}}" onTap="tapStyleNav" hidden='{{dropDownMenuStyleData.length > 0 ? false : true}}' data-nav="2">
+    <view class="nav-title">{{selected_style_name.length > 2 ?selected_style_name : dropDownMenuTitle[2]}}</view>
+    <view class="icon"></view>
+  </view>
+  <view class="nav-child {{filter_open ? 'active' : ''}}" onTap="tapFilterNav" hidden='{{dropDownMenuFilterData.length > 0 ? false : true}}' data-nav="3">
+    <view class="nav-title">{{selected_filter_name.length > 2 ?selected_filter_name : dropDownMenuTitle[3]}}</view>
+    <view class="icon"></view>
+  </view>
+</view>
+
+<view class="container container_hd {{source_open ? 'show' : 'disappear'}} ">
+  <view class='z-height'>
+    <view>
+      <block a:for="{{dropDownMenuSourceData}}" a:key="unique">
+        <view class="sortitem {{selected_source_id==item.id ? 'active ' : ' '}}" data-model='{{item}}' onTap='selectSourceItem'> {{item.title}}</view>
+      </block>
+    </view>
+  </view>
+</view>
+<view class="container container_hd {{style_open ? 'show' : 'disappear'}} ">
+  <view class='z-height'>
+    <view>
+      <block a:for="{{dropDownMenuStyleData}}" a:key="unique">
+        <view class="sortitem {{selected_style_id==item.id ? 'active ' : ' '}}" data-model='{{item}}' onTap='selectStyleItem'> {{item.title}}</view>
+      </block>
+    </view>
+  </view>
+</view>
+<view class="container container_hd {{filter_open ? 'show' : 'disappear'}} ">
+  <view class='z-height'>
+    <view>
+      <block a:for="{{dropDownMenuFilterData}}" a:key="unique">
+        <view class="sortitem {{selected_filter_id==item.id ? 'active ' : ' '}}" data-model='{{item}}' onTap='selectFilterItem'> {{item.title}}</view>
+      </block>
+    </view>
+  </view>
+</view>

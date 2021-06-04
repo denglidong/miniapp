@@ -1,0 +1,18 @@
+
+
+.mianbaoxie {
+  position: fixed;
+  width: 100%;
+  min-height: 104rpx;
+  line-height: 104rpx;
+  background-color: #fff;
+  color: #39f;
+  z-index: 999;
+  top: 100rpx;
+}
+.mianbaoxie text {
+  display: inline-block;
+}
+.classification {
+  border-radius: 10px
+}

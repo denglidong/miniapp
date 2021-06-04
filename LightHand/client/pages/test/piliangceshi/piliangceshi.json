@@ -1,0 +1,20 @@
+{
+  "defaultTitle": "批量诊断",
+  "usingComponents":{
+    "search-bar": "mini-antui/es/search-bar/index",
+    "tabs": "mini-antui/es/tabs/index",
+    "tab-content": "mini-antui/es/tabs/tab-content/index"
+  },
+    "tabBar": {
+    "items": [
+      {
+        "pagePath": "",
+        "name": "组件"
+      },
+      {
+        "pagePath": "",
+        "name": "API"
+      }
+    ]
+  }
+}

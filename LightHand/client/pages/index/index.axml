@@ -1,0 +1,8 @@
+<view class="content-center">
+  <view>
+    <image mode="widthFix" class="image" src="/image/logo.png"/>
+  </view>
+  <view class="text">
+    <text>轻松一点，高效发品</text> 
+  </view>
+</view>

@@ -1,0 +1,44 @@
+page {
+  padding-top: 28%;
+  padding-bottom: 4%;
+}
+
+.imageinfo {
+  width: 100%;
+  min-height: 190rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.nav-title-me {
+  margin: 0 auto;
+  width: 192rpx;
+  color: rgba(0, 0, 0, 1);
+  font-size: 48rpx;
+  font-family: "PingFangSC-regular";
+  margin-top: 60rpx;
+}
+
+.title_btn {
+  color: #fff;
+  margin-left: 32rpx;
+  align-self: center;
+  font-size: 28rpx;
+  font-family: "PingFangSC-regular";
+}
+
+.title_btn_send {
+  color: rgba(102, 102, 102, 1);
+  margin-right: 32rpx;
+  align-self: center;
+  font-size: 28rpx;
+  font-family: "PingFangSC-regular";
+}
+
+.title_btn_send_fff {
+  color: rgba(255, 255, 255, 1);
+  margin-right: 32rpx;
+  align-self: center;
+  font-size: 28rpx;
+  font-family: "PingFangSC-regular";
+}

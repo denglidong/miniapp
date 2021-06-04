@@ -1,0 +1,8 @@
+{
+  "modes": [
+    {
+      "title": "imagePank",
+      "page": "pages/publishProduct/imagePank/imagePank"
+    }
+  ]
+}

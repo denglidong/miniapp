@@ -1,0 +1,73 @@
+<view style="width: 100%;position: fixed;z-index: 99;margin-top: {{marginTop}}rpx;">
+  <view>
+    <search-bar value="{{value}}" style="margin-top: 20rpx;" onClear="handleClear" placeholder="请输入模板名称" onSubmit="search" onInput="handleInput" showCancelButton="{{false}}" />
+  </view>
+  <view class="tianjia">
+    <text>模板总数：{{list.length}}/{{count}}</text>
+    <text onTap="toAdd">添加</text>
+  </view>
+</view>
+<view class="container" style="padding-top: {{paddingTop}}rpx;">
+  <view class="liu" a:for="{{list}}" a:key="{{index}}" a:for-item="moban" a:for-index="index">
+    <view style="display: flex;justify-content: space-between;">
+      <text class="zhi">
+         {{moban.name}}
+      </text>
+      <text class="goPublish" onTap="goPublish" data-id="{{moban.id}}">
+         去发品
+      </text>
+    </view>
+    <view class="leimu" onTap="toEdit" data-produce_id='{{moban.id}}' data-alibaba_category_id_path = "{{moban.alibaba_category_id_path}}" data-alibaba_category_id= '{{moban.alibaba_category_id}}'>
+      所选类目：
+      <text>{{moban.alibaba_category_zh_name_path}}</text>
+    </view>
+    <view class="englishName">
+     {{moban.alibaba_category_en_name_path}}
+    </view>
+    <view class="heng">
+      <view class="kuanShi">
+       {{moban.chan_pin_lei_xing}}
+      </view>
+      <button class="dianJi" onTap="deleteId" size="mini" type="default" data-id={{moban.id}}>删除
+      </button>
+    </view>
+  </view>
+</view>
+<modal className="delete-modal" show="{{visible}}" onModalClick="onModalClick" onModalClose="onModalClose">
+  <view slot="header">删除产品模板</view>
+    是否删除改模板？
+  <view slot="footer">确定</view>
+</modal>
+<view class="item-footer-onload">{{count>list.length?'上滑加载更多':'没有更多模板了'}}</view>
+<!-- 添加模板提示 -->
+<view style="position: fixed;bottom: {{bottomNumber+'%'}};display: {{showKnow == true?'block':'none'}};left: {{leftNumber+'%'}};z-index: 999;">
+  <view style="width: 440rpx;">
+    <view style="display: flex;justify-content: space-around;background-color: rgb(50,120,250);padding: 20rpx;color: #fff;font-size: 24rpx;border-radius: 7px;">
+      <view style="padding: 10rpx;">
+     请点击添加新建发布模板
+      </view>
+      <view style="border: 2rpx solid white;padding: 10rpx;" onTap="onKnowTap">
+     知道了
+      </view>
+    </view>
+    <view style="width:0;height:0;border-top: 12px solid transparent;border-left: 18px solid rgb(50,120,250);border-bottom: 12px solid transparent;margin-top: {{topNUmber+'%'}};
+    margin-left: {{marginLeftNumber+'%'}};">
+    </view>
+  </view>
+</view>
+<view style="position: fixed;bottom: {{number1+'%'}};display: {{showPublish == true?'block':'none'}};left: {{number2+'%'}};z-index: 999;">
+  <view style="width: 400rpx;">
+    <view style="display: flex;justify-content: space-around;background-color: rgb(50,120,250);padding: 20rpx;color: #fff;font-size: 24rpx;border-radius: 7px;">
+      <view style="padding: 10rpx;">
+    请点击去发布商品
+      </view>
+      <view style="border: 2rpx solid white;padding: 10rpx;" onTap="onPublishTap">
+     知道了
+      </view>
+    </view>
+    <view style="width:0;
+height:0;border-top: 12px solid transparent;border-left: 18px solid rgb(50,120,250);border-bottom: 12px solid transparent;margin-top: {{number3+'%'}};
+    margin-left: {{number4+'%'}};">
+    </view>
+  </view>
+</view>

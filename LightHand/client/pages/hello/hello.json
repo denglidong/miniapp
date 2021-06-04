@@ -1,0 +1,14 @@
+{
+  "usingComponents": {
+    "list": "mini-antui/es/list/index",
+    "list-item": "mini-antui/es/list/list-item/index",
+    "loading": "mini-ali-ui/es/loading/index",
+    "container": "mini-ali-ui/es/container/index"
+  }
+
+
+
+   
+ 
+}
+

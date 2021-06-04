@@ -1,0 +1,13 @@
+page {
+  padding-top: 18%;
+  padding-bottom: 4%;
+}
+
+.nav-title-me {
+  margin: 0 auto;
+  width: 432rpx;
+  color: rgba(0, 0, 0, 1);
+  font-size: 48rpx;
+  font-family: "PingFangSC-regular";
+  margin-top: 60rpx;
+}

@@ -1,0 +1,53 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/product/product",
+    "pages/publishProduct/publishProduct",
+    "pages/publishProduct/alibabaRule/alibabaRule",
+    "pages/publishProduct/imagePank/imagePank",
+    "pages/publishProduct/imagePank/imageInfo/imageInfo",
+    "pages/optimization/optimization",
+    "pages/optimization/xiufu/xiufu",
+    "pages/optimization/zhenduan/zhenduan",
+    "pages/optimization/xiufu/advice/advice",
+    "pages/publish/publish",
+    "pages/hello/hello",
+    "pages/publishAdd/publishAdd",
+    "pages/publishRemove/publishRemove",
+    "pages/revampHello/revampHello",
+    "pages/decoration/decoration",
+    "pages/editProduct/editProduct",
+    "pages/about/about",
+    "pages/contactus/contactus",
+    "pages/outpc/outpc"
+  ],
+  "window": {
+    "defaultTitle": "闪电手test",
+    "pullRefresh": true
+  },
+  "tabBar": {
+    "textColor": "#000000",
+    "selectedColor": "#49a9ee",
+    "backgroundColor": "#ffffff",
+    "items": [
+      {
+        "pagePath": "pages/product/product",
+        "icon": "image/products.png",
+        "activeIcon": "image/products_a.png",
+        "name": "产品管理"
+      },
+      {
+        "pagePath": "pages/publish/publish",
+        "icon": "image/publish.png",
+        "activeIcon": "image/publish_a.png",
+        "name": "发布模板"
+      },
+      {
+        "pagePath": "pages/about/about",
+        "icon": "image/user_center.png",
+        "activeIcon": "image/user_center_a.png",
+        "name": "我的"
+      }
+    ]
+  }
+}

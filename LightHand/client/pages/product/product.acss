@@ -1,0 +1,281 @@
+page {
+  padding-top: 62%;
+  padding-bottom: 4%;
+}
+
+.am-tabs-scroll-left{
+  opacity: 0;
+}
+
+.am-tabs-scroll-right {
+  opacity: 0;
+}
+
+.nav-title-me {
+  margin: 0 auto;
+  width: 192rpx;
+  color: rgba(0, 0, 0, 1);
+  font-size: 48rpx;
+  font-family: PingFangSC-regular;
+  margin-top: 60rpx;
+}
+
+.tab-bg-color {
+  background-color: #f5f5f5;
+}
+
+.item-mrg {
+  margin-top: 10rpx;
+  margin-bottom: 20rpx;
+}
+
+.product-count {
+  font-family: PingFangSC-regular;
+  font-size: 24rpx;
+  padding-top: 24rpx;
+  padding-left: 32rpx;
+  padding-bottom: 24rpx;
+  padding-right: 32rpx;
+}
+
+.item-content {
+  width: 658rpx;
+  min-height: 296rpx;
+  margin: 0 auto;
+  border-radius: 8rpx;
+  background-color: #fff;
+  padding: 24rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item-content-header {
+  width: 100%;
+  border-bottom: solid #f7f7f7 1rpx;
+  font-size: 0.24rem;
+  height: 50rpx;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.item-content-img {
+  width: 180rpx;
+  height: 180rpx;
+  overflow: hidden;
+  margin-top: 24rpx;
+}
+
+.item-content-right {
+  margin: 24rpx;
+  width: 404rpx;
+  height: 180rpx;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.item-content-right-1 {
+  width: 404rpx;
+  height: 180rpx;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.item-content-title {
+  width: 100%;
+  height: 32rpx;
+  color: rgba(102, 102, 102, 100);
+  font-size: 24rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.item-content-productid {
+  width: 100%;
+  height: 32rpx;
+  color: rgba(102, 102, 102, 100);
+  font-size: 24rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+  align-self: center;
+}
+
+.item-content-property {
+  width: 100%;
+  height: 32rpx;
+  color: rgba(102, 102, 102, 100);
+  font-size: 24rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+  align-self: flex-end;
+}
+
+.item-content-downimg {
+  position: absolute;
+  right: -48rpx;
+  top: 52rpx;
+}
+
+.item-downing-size {
+  width: 48rpx;
+  opacity: 0.6;
+}
+
+.item-content-footer {
+  width: 702rpx;
+  height: 120rpx;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 0 0 8rpx 8rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item-footer-fun {
+  width: 351rpx;
+  display: flex;
+}
+
+.item-footer-fun-sty {
+  width: 68rpx;
+  margin: 0 auto;
+  align-self: flex-end;
+}
+
+.item-footer-img {
+  width: 48rpx;
+  opacity: 0.6;
+}
+
+.item-footer-align {
+  position: relative;
+  left: -8rpx;
+  text-align: center;
+  font-size: 30rpx;
+  opacity: 0.6;
+}
+
+.item-footer-onload {
+  width: 100%;
+  text-align: center;
+  border-bottom: solid #f7f7f7 1rpx;
+  font-size: 0.24rem;
+  height: 50rpx;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.xuanFu {
+  width: 188rpx;
+  height: 60rpx;
+  z-index: 9999;
+  position: fixed;
+  bottom: 344rpx;
+  right: 0rpx;
+  background-color: rgb(16, 142, 233);
+  border-radius: 30rpx 0 0 30rpx;
+  color: #fff;
+  text-align: center;
+  font-size: 28rpx;
+  line-height: 60rpx;
+}
+
+.xuanFuD {
+  width: 188rpx;
+  height: 60rpx;
+  z-index: 9999;
+  position: fixed;
+  bottom: 200rpx;
+  right: 0rpx;
+  background-color: rgb(16, 142, 233);
+  border-radius: 30rpx 0 0 30rpx;
+  color: #fff;
+  text-align: center;
+  font-size: 28rpx;
+  line-height: 60rpx;
+}
+
+.xuanFuK {
+  width: 188rpx;
+  height: 60rpx;
+  z-index: 9999;
+  position: fixed;
+  bottom: 100rpx;
+  right: 0rpx;
+  background-color: rgb(16, 142, 233);
+  border-radius: 30rpx 0 0 30rpx;
+  color: #fff;
+  text-align: center;
+  font-size: 28rpx;
+  line-height: 60rpx;
+}
+
+/*popover组件开始 */
+
+.demo-popover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 400px;
+}
+
+.demo-popover-btn {
+  width: 188rpx;
+  height: 68rpx;
+  background-color: rgb(50, 120, 250);
+  border-radius: 20rpx 0 0 20rpx;
+  color: #fff;
+  text-align: center;
+  font-size: 28rpx;
+  line-height: 68rpx;
+  box-shadow: 0px 4px 6px #707070;
+}
+
+.demo-popover-test-btns {
+  display: flex;
+  justify-content: space-around;
+}
+
+.demo-popover-test-btn {
+  width: 45%;
+}
+
+.am-popover-arrow {
+  width: 20rpx;
+  height: 20rpx;
+  background: white;
+  left: 148rpx;
+  top: -22rpx;
+}
+
+.am-popover-content {
+  top: 330rpx;
+  right: -140rpx;
+}
+
+.am-popover-inner {
+  border-radius: 40rpx;
+  top: -90rpx;
+  left: 0rpx;
+}
+
+.am-popover-arrow {
+  background-color: rgb(50, 120, 250);
+  top: -26rpx;
+}
+
+.am-popover-inner {
+  background-color: rgb(50, 120, 250);
+  border-radius: 10rpx;
+  font-size: 24rpx;
+}
+
+.am-popover-item {
+  color: #fff;
+  margin: 0;
+}
+
+/*popover组件结束 */

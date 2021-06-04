@@ -1,0 +1,24 @@
+{
+  "defaultTitle": "产品优化",
+  "usingComponents":{
+    "search-bar": "mini-antui/es/search-bar/index",
+    "tabs": "mini-antui/es/tabs/index",
+    "tab-content": "mini-antui/es/tabs/tab-content/index",
+    "list": "mini-antui/es/list/index",
+    "list-item": "mini-antui/es/list/list-item/index",
+    "am-checkbox": "mini-antui/es/am-checkbox/index",
+    "dropdownmenu":"../../component/dropdownmenu/dropdownmenu"
+  },
+  "tabBar": {
+    "items": [
+      {
+        "pagePath": "",
+        "name": "组件"
+      },
+      {
+        "pagePath": "",
+        "name": "API"
+      }
+    ]
+  }
+}

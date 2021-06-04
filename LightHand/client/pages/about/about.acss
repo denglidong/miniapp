@@ -1,0 +1,26 @@
+page {
+  padding-top: 17%;
+  padding-bottom: 4%;
+}
+
+.user-info {
+  width: 100%;
+  height: 700rpx;
+  background-color: #108ee9;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.user-image {
+  width: 300rpx;
+  height: 300rpx;
+  margin-top: 200rpx;
+  margin-left: 225rpx;
+}
+
+.user-name {
+  font-size: 50rpx;
+  font-weight: bold;
+  margin-top: 50rpx;
+}

@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "装修模板列表",
+  "usingComponents":{
+    "modal": "mini-ali-ui/es/modal/index",
+    "popup": "mini-ali-ui/es/popup/index"
+  }
+}

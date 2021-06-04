@@ -1,0 +1,355 @@
+<view class="page">
+  <form>
+    <!-- 基本信息 -->
+    <view style="width: 702rpx;height: 352rpx;background-color: rgba(247, 247, 247, 100);margin-top: 44rpx;border-radius: 6px;">
+      <view style="width: 678rpx;height: 78rpx;border-bottom: 2rpx solid rgba(187, 187, 187, 100);
+  margin-left: 24rpx;line-height: 78rpx;color: rgba(51, 51, 51, 100);font-size: 32rpx;text-align: left;
+  font-family: PingFangSC-regular;">
+    基本信息
+      </view>
+      <view style="width: 678rpx;height: 272rpx;margin-left: 24rpx;">
+        <view style="display: flex;margin-top: 40rpx;">
+          <view style="widht: 112rpx;height: 38rpx;color: rgba(102, 102, 102, 100);font-size: 14px;text-align: left;
+      font-family: PingFangSC-regular;">
+        模板名称: {{valueList.style}}
+          </view>
+          <view style="margin-left: 82rpx;color: rgba(51, 51, 51, 100);font-size: 12px;height: 21px;
+      text-align: left;font-family: PingFangSC-regular;">
+          </view>
+        </view>
+        <view style="width: 678rpx;height: 94rpx;margin-top: 44rpx;display: flex;">
+          <view style="width: 33px;height: 19px;color: rgba(102, 102, 102, 100);font-size: 14px;text-align: left;
+      font-family: PingFangSC-regular;">
+        类别
+          </view>
+          <view style="width: 354rpx;margin-left: 128rpx;color: rgba(51, 51, 51, 100);font-size: 12px;
+      font-family: PingFangSC-regular;text-align: left;">
+            <view a:for="{{valueList.sort}}" style="display: inline-block;">
+
+       {{item.title}}
+              <text a:if="{{valueList.sort.length!=(index+1)}}">>></text>
+            </view>
+          </view>
+          <view onTap="toSelectType" style="margin-left: 58rpx;width: 24px;height: 21px;color: rgba(204, 50, 50, 100);font-size: 12px;
+      font-family: PingFangSC-regular;text-align: left;">
+        切换
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--产品类型  -->
+    <view class="leixing">
+      <view class="page-description">产品类型</view>
+      <view class="page-section">
+        <picker onChange="bindPickerChange" v:for="{{list}}" value="{{item.index}}" range="{{item.style}}">
+          <view class="row">
+            <view class="row-title">类型</view>
+            <view class="row-extra">{{item.style[item.index]}}</view>
+            <view class="row-arrow">
+                  >
+            </view>
+          </view>
+        </picker>
+      </view>
+    </view>
+    <!-- 产品属性 -->
+    <view class="shuxing">
+      <view class="page-description">产品属性</view>
+      <view>
+        <view class="page-section" a:for="{{array}}" >
+          <picker onChange="bindPickerChangeGongYi" data-attr="{{item}}" data-index="{{index}}" range="{{item.options}}" value="{{array[index].id}}">
+            <view class="xian row">
+              <view class="row-title">{{item.label}}</view>
+              <view class="row-extra">{{array[index].options[array[index].id]}}</view>
+              <view class="row-arrow">
+                  >
+              </view>
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+    <!-- 产品规格 -->
+    <view class="guige">
+      <view class="page-description">产品规格</view>
+      <view class="page-section">
+        <picker onChange="bindPickerChangeYanSe" value="{{index_ys}}" range="{{array_ys}}">
+          <view class="row">
+            <view class="row-title">颜色</view>
+            <view class="row-extra">{{array_ys[index_ys]}}</view>
+            <view class="row-arrow">
+                  >
+            </view>
+          </view>
+        </picker>
+      </view>
+    </view>
+    <!-- 交易信息 -->
+    <view class="xinxi">
+      <view class="page-description">交易信息</view>
+      <view>
+        <view class="page-section">
+          <picker onChange="bindPickerChange" value="{{index_g}}" range="{{array_g}}">
+            <view class="row">
+              <view class="row-title">计量单位</view>
+              <view class="row-extra">{{array_g[index_g]}}</view>
+              <view class="row-arrow">
+                  >
+              </view>
+            </view>
+          </picker>
+        </view>
+        <!--  -->
+        <view class="page-section">
+          <picker onChange="bindPickerChangeMuBiaoMaiJia" value="{{index_z}}" range="{{array_z}}">
+            <view class="row">
+              <view class="row-title">销售方式</view>
+              <view class="row-extra">{{array_z[index_z]}}</view>
+              <view class="row-arrow">
+                  >
+              </view>
+            </view>
+          </picker>
+        </view>
+        <!--  -->
+        <view class="page-section">
+          <picker onChange="bindPickerChange" value="{{index_s}}" range="{{array_s}}">
+            <view class="row">
+              <view class="row-title">价格设置</view>
+              <view class="row-extra">{{array_s[index_s]}}</view>
+              <view class="row-arrow">
+                  >
+              </view>
+            </view>
+          </picker>
+        </view>
+      </view>
+      <!-- 最小起订量 -->
+      <view class="min">
+        <view style="display: flex;margin-top: 40rpx;margin-left: 76rpx;">
+          <view style="width: 120rpx;height: 40rpx;font-size: 12px;text-align: left;
+    color: rgba(102, 102, 102, 100);">
+      最小起订量
+          </view>
+          <view style="width: 200rpx;height: 40rpx;color: rgba(102, 102, 102, 100);font-size: 12px;text-align: left;
+      height: 20px;margin-left: 184rpx;">
+      产品价格（US $）
+          </view>
+        </view>
+        <!-- 数量 -->
+        <view style="width: 542rpx;height: 94rpx;margin: auto;
+  border-bottom: 1px solid rgba(187, 187, 187, 100);overflow: hidden;">
+          <view style="float: left;width: 268rpx;height: 50rpx;
+     border-right: 1px solid rgba(187, 187, 187, 100);margin-top: 20rpx;">
+            <text style="width: 50rpx;height: 100rpx;line-height: 50rpx;margin-left: 40rpx;">
+        ≥
+            </text>
+            <input placeholder="12" placeholder-class='placeholder-input' type="text" style="width: 180rpx;text-align: left;vertical-align:top"/>
+          </view>
+          <!--  -->
+          <view style="float: right;width: 272rpx;height: 50rpx;margin: auto;margin-top: 20rpx;">
+            <input placeholder="38" placeholder-class='placeholder-input' type="text" style="width: 200rpx;text-align: center;"/>
+          </view>
+        </view>
+        <!-- 1 -->
+        <view style="width: 542rpx;height: 94rpx;margin: auto;
+  border-bottom: 1px solid rgba(187, 187, 187, 100);overflow: hidden;">
+          <view style="float: left;width: 268rpx;height: 50rpx;
+     border-right: 1px solid rgba(187, 187, 187, 100);margin-top: 20rpx;">
+            <text style="width: 50rpx;height: 100rpx;line-height: 50rpx;margin-left: 40rpx;">
+        ≥
+            </text>
+            <input placeholder="12" placeholder-class='placeholder-input' type="text" style="width: 180rpx;text-align: left;vertical-align:top"/>
+          </view>
+          <!--  -->
+          <view style="float: right;width: 272rpx;height: 50rpx;margin: auto;margin-top: 20rpx;">
+            <input placeholder="38" placeholder-class='placeholder-input' type="text" style="width: 200rpx;text-align: center;"/>
+            <image mode="scaleToFill" src="../../image/shanchu.png" style="width: 40rpx;height: 40rpx;"/>
+          </view>
+        </view>
+        <!-- 2 -->
+        <view style="width: 542rpx;height: 94rpx;margin: auto;
+  border-bottom: 1px solid rgba(187, 187, 187, 100);overflow: hidden;">
+          <view style="float: left;width: 268rpx;height: 50rpx;
+     border-right: 1px solid rgba(187, 187, 187, 100);margin-top: 20rpx;">
+            <text style="width: 50rpx;height: 100rpx;line-height: 50rpx;margin-left: 40rpx;">
+        ≥
+            </text>
+            <input placeholder="12" placeholder-class='placeholder-input' type="text" style="width: 180rpx;text-align: left;vertical-align:top"/>
+          </view>
+          <!--  -->
+          <view style="float: right;width: 272rpx;height: 50rpx;margin: auto;margin-top: 20rpx;">
+            <input placeholder="38" placeholder-class='placeholder-input' type="text" style="width: 200rpx;text-align: center;"/>
+            <image mode="scaleToFill" src="../../image/shanchu.png" style="width: 40rpx;height: 40rpx;"/>
+          </view>
+        </view>
+        <!-- 3 -->
+      </view>
+    </view>
+    <!-- 物流信息 -->
+    <view style="margin-top: 44rpx;background-color: rgba(246, 246, 246, 100);
+    border-radius: 6px;">
+      <view class="page-description">物流信息</view>
+      <view style="width: 678rpx;height: 298rpx;margin-left: 24rpx;">
+        <view style="margin-top: 40rpx;display: flex;">
+          <view style="width: 98px;height: 19px;color: rgba(102, 102, 102, 100);font-size: 14px;
+          text-align: left;font-family: PingFangSC-regular;">
+            每个商品长宽高
+          </view>
+          <input type="text" placeholder="38 CM*27 CM*27 CM /Piece/Pieces" placeholder-class='placeholder-yanse' style="width: 210px;height: 21px;color: rgba(51, 51, 51, 100);font-size: 12px;
+          text-align: left;font-family: PingFangSC-regular;margin-left: 30rpx;padding: 0;">
+          </input>
+        </view>
+        <view style="width: 52px;height: 19px;color: rgba(102, 102, 102, 100);font-size: 14px;text-align: left;
+        font-family: PingFangSC-regular;">
+          (含包装)
+        </view>
+        <view style="display: flex;margin-top: 18rpx;">
+          <view style="width: 84px;height: 19px;color: rgba(102, 102, 102, 100);font-size: 14px;text-align: left;
+          font-family: PingFangSC-regular;">
+            每件商品毛重
+          </view>
+          <input placeholder="5 KG / Piece/Pieces1 11 11 111 11 " placeholder-class='placeholder-yanse' type="text" style="width: 210px;height: 21px;
+          color: rgba(51, 51, 51, 100);font-size: 12px;text-align: left;font-family: PingFangSC-regular;margin-left: 58rpx;padding: 0;"/>
+        </view>
+        <view style="display: flex;margin-top: 44rpx;">
+          <view style="width: 42px;height: 19px;color: rgba(102, 102, 102, 100);font-size: 14px;text-align: left;
+          font-family: PingFangSC-regular;">
+            发货期
+          </view>
+          <input placeholder="根据数量设置发货期" placeholder-class='placeholder-yanse' type="text" style="width: 210px;height: 21px;
+          color: rgba(51, 51, 51, 100);font-size: 12px;text-align: left;font-family: PingFangSC-regular;margin-left: 142rpx;padding: 0;"/>
+        </view>
+      </view>
+      <view style="background: #fff;margin-left: 19px;margin-right: 19px;border: 1px solid rgba(255, 255, 255, 100);
+border-radius: 5px;">
+        <view style="display: flex;margin-top: 40rpx;margin-left: 76rpx;">
+          <view style="width: 120rpx;height: 40rpx;font-size: 12px;text-align: left;
+    color: rgba(102, 102, 102, 100);">
+      数量
+          </view>
+          <view style="width: 200rpx;height: 40rpx;color: rgba(102, 102, 102, 100);font-size: 12px;text-align: left;
+      height: 20px;margin-left: 184rpx;">
+      预计时间（天）
+          </view>
+        </view>
+        <!-- 数量 -->
+        <view style="width: 542rpx;height: 94rpx;margin: auto;
+  border-bottom: 1px solid rgba(187, 187, 187, 100);overflow: hidden;">
+          <view style="float: left;width: 268rpx;height: 50rpx;
+     border-right: 1px solid rgba(187, 187, 187, 100);margin-top: 20rpx;">
+            <text style="width: 50rpx;height: 100rpx;line-height: 50rpx;margin-left: 40rpx;">
+        ≤
+            </text>
+            <input placeholder="100" placeholder-class='placeholder-input' type="text" style="width: 180rpx;text-align: left;vertical-align:top"/>
+          </view>
+          <!--  -->
+          <view style="float: right;width: 272rpx;height: 50rpx;margin: auto;margin-top: 20rpx;">
+            <input placeholder="38" placeholder-class='placeholder-input' type="text" style="width: 200rpx;text-align: center;"/>
+          </view>
+        </view>
+        <!-- 1 -->
+        <view style="width: 542rpx;height: 94rpx;margin: auto;
+  border-bottom: 1px solid rgba(187, 187, 187, 100);overflow: hidden;">
+          <view style="float: left;width: 268rpx;height: 50rpx;
+     border-right: 1px solid rgba(187, 187, 187, 100);margin-top: 20rpx;">
+            <text style="width: 50rpx;height: 100rpx;line-height: 50rpx;margin-left: 40rpx;">
+       ≤
+            </text>
+            <input placeholder="500" placeholder-class='placeholder-input' type="text" style="width: 180rpx;text-align: left;vertical-align:top"/>
+          </view>
+          <!--  -->
+          <view style="float: right;width: 272rpx;height: 50rpx;margin: auto;margin-top: 20rpx;">
+            <input placeholder="36" placeholder-class='placeholder-input' type="text" style="width: 200rpx;text-align: center;"/>
+            <image mode="scaleToFill" src="../../image/shanchu.png" style="width: 40rpx;height: 40rpx;"/>
+          </view>
+        </view>
+        <!-- 2 -->
+        <view style="width: 542rpx;height: 94rpx;margin: auto;
+  overflow: hidden;">
+          <view style="float: left;width: 268rpx;height: 50rpx;
+     border-right: 1px solid rgba(187, 187, 187, 100);margin-top: 20rpx;">
+            <text style="width: 50rpx;height: 100rpx;line-height: 50rpx;margin-left: 40rpx;">
+        ≤
+            </text>
+            <input placeholder="1000" placeholder-class='placeholder-input' type="text" style="width: 180rpx;text-align: left;vertical-align:top"/>
+          </view>
+          <!--  -->
+          <view style="float: right;width: 272rpx;height: 50rpx;margin: auto;margin-top: 20rpx;">
+            <input placeholder="34" placeholder-class='placeholder-input' type="text" style="width: 200rpx;text-align: center;"/>
+            <image mode="scaleToFill" src="../../image/shanchu.png" style="width: 40rpx;height: 40rpx;"/>
+          </view>
+        </view>
+      </view>
+      <view class="page-section">
+        <picker onChange="bindPickerChangeMuBiaoMaiJia" value="{{index_z}}" range="{{array_z}}">
+          <view class="row">
+            <view class="row-title">运费模板</view>
+            <view class="row-extra">{{array_z[index_z]}}</view>
+            <view class="row-arrow">
+                  >
+            </view>
+          </view>
+        </picker>
+      </view>
+      <view class="page-section">
+        <picker onChange="bindPickerChangeMuBiaoMaiJia" value="{{index_z}}" range="{{array_z}}">
+          <view class="row">
+            <view class="row-title">发货运费参考</view>
+            <view class="row-extra">{{array_z[index_z]}}</view>
+            <view class="row-arrow">
+                  >
+            </view>
+          </view>
+        </picker>
+      </view>
+    </view>
+
+    
+    <!-- 定制信息 -->
+    <view class="wuliu">
+      <view class="page-description">定制信息</view>
+      <view>
+        <view class="page-section">
+          <picker onChange="bindPickerChangeGongYi" value="{{index_g}}" range="{{array_g}}">
+            <view class="xian row">
+              <view class="row-title">产品分组</view>
+              <view class="row-extra">{{array_g[index_g]}}</view>
+              <view class="row-arrow">
+                  >
+              </view>
+            </view>
+          </picker>
+        </view>
+        <!--  -->
+        <!--  -->
+        <view class="page-section">
+          <picker onChange="bindPickerChangeJiaRi" value="{{index_j}}" range="{{array_j}}">
+            <view class="row">
+              <view class="row-title">定制服务</view>
+              <view class="row-extra">{{array_j[index_j]}}</view>
+              <view class="row-arrow">
+                  >
+              </view>
+            </view>
+          </picker>
+        </view>
+        <!--  -->
+        <view class="page-section">
+          <picker onChange="bindPickerChangeReMaiJiJie" value="{{index_r}}" range="{{array_r}}">
+            <view class="row">
+              <view class="row-title">定制内容</view>
+              <view class="row-extra">{{array_r[index_r]}}</view>
+              <view class="row-arrow">
+                  >
+              </view>
+            </view>
+          </picker>
+        </view>
+        <!--  -->
+      </view>
+    </view>
+  </form>
+  <view style="width: 750rpx;height: 68rpx;background:  rgba(248, 248, 248, 100);;">
+  </view>
+</view> 
